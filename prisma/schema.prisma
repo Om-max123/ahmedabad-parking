@@ -1,0 +1,183 @@
+// ============================================================
+// AHMEDABAD SMART PARKING MANAGEMENT SYSTEM
+// Prisma Schema Definition for PostgreSQL Database
+// ============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 1. LOCATIONS MODEL (Ahmedabad Multi-Level & Commercial Hubs)
+model Location {
+  id         String   @id @db.VarChar(50)
+  name       String   @db.VarChar(150)
+  area       String   @db.VarChar(100)
+  address    String   @db.Text
+  lat        Decimal  @db.Decimal(10, 6)
+  lng        Decimal  @db.Decimal(10, 6)
+  rating     Decimal? @default(4.5) @db.Decimal(2, 1)
+  hourlyRate Decimal  @default(30.00) @map("hourly_rate") @db.Decimal(8, 2)
+  currency   String?  @default("₹") @db.VarChar(10)
+  createdAt  DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt  DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  // Relational associations
+  slots    ParkingSlot[]
+  bookings Booking[]
+
+  @@map("locations")
+}
+
+// 2. USERS MODEL (Registered Drivers & Citizens)
+model User {
+  id          String   @id @db.VarChar(50)
+  name        String   @db.VarChar(100)
+  phone       String   @unique @db.VarChar(20)
+  carNumber   String   @unique @map("car_number") @db.VarChar(30)
+  vehicleType   String?             @default("compact") @map("vehicle_type") @db.VarChar(20)
+  walletBalance Decimal             @default(500.00) @map("wallet_balance") @db.Decimal(10, 2)
+  createdAt     DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+  lastLogin     DateTime            @default(now()) @map("last_login") @db.Timestamptz(6)
+
+  // Relational associations
+  bookings           Booking[]
+  walletTransactions WalletTransaction[]
+
+  @@map("users")
+}
+
+// 3. PARKING SLOTS MODEL (Physical bays with IoT Sensor Telemetry)
+model ParkingSlot {
+  id                   String    @id @db.VarChar(50)
+  locationId           String    @map("location_id") @db.VarChar(50)
+  slotCode             String    @map("slot_code") @db.VarChar(20)
+  spotNumber           Int       @map("spot_number")
+  zone                 String    @db.VarChar(5)
+  slotType             String?   @default("compact") @map("slot_type") @db.VarChar(20)
+  status               String?   @default("available") @db.VarChar(20)
+  currentPlate         String?   @map("current_plate") @db.VarChar(30)
+  currentDriver        String?   @map("current_driver") @db.VarChar(100)
+  currentPhone         String?   @map("current_phone") @db.VarChar(20)
+  parkedAt             DateTime? @map("parked_at") @db.Timestamptz(6)
+  batteryLevel         Int?      @map("battery_level")
+  sensorUltrasonic     Decimal?  @default(100.0) @map("sensor_ultrasonic") @db.Decimal(6, 2)
+  sensorProximity      Decimal?  @default(2.5) @map("sensor_proximity") @db.Decimal(6, 2)
+  sensorPressure       Decimal?  @default(3.0) @map("sensor_pressure") @db.Decimal(6, 2)
+  sensorNoise          Decimal?  @default(50.0) @map("sensor_noise") @db.Decimal(6, 2)
+  sensorTemperature    Decimal?  @default(28.0) @map("sensor_temperature") @db.Decimal(5, 2)
+  nearbyTraffic        String?   @default("Low") @map("nearby_traffic") @db.VarChar(20)
+  dynamicPricingFactor Decimal?  @default(1.0) @map("dynamic_pricing_factor") @db.Decimal(4, 2)
+  spotSize             String?   @default("Standard") @map("spot_size") @db.VarChar(30)
+  updatedAt            DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  // Relational associations
+  location Location  @relation(fields: [locationId], references: [id], onDelete: Cascade)
+  bookings Booking[]
+
+  @@index([locationId], map: "idx_slots_location")
+  @@index([status], map: "idx_slots_status")
+  @@map("parking_slots")
+}
+
+// 4. BOOKINGS MODEL (Live and Completed Parking Sessions)
+model Booking {
+  bookingId           String    @id @map("booking_id") @db.VarChar(50)
+  userId              String?   @map("user_id") @db.VarChar(50)
+  locationId          String    @map("location_id") @db.VarChar(50)
+  slotId              String    @map("slot_id") @db.VarChar(50)
+  plate               String    @db.VarChar(30)
+  driverName          String    @map("driver_name") @db.VarChar(100)
+  phone               String    @db.VarChar(20)
+  vehicleType         String?   @default("compact") @map("vehicle_type") @db.VarChar(20)
+  hourlyRate          Decimal   @map("hourly_rate") @db.Decimal(8, 2)
+  bookedDurationHours Int?      @default(2) @map("booked_duration_hours")
+  status              String?   @default("active") @db.VarChar(20)
+  checkinVerified     Boolean?  @default(false) @map("checkin_verified")
+  checkinMethod       String?   @default("FASTag RFID") @map("checkin_method") @db.VarChar(100)
+  checkinTime         DateTime? @map("checkin_time") @db.Timestamptz(6)
+  paymentStatus       String?   @default("PAID_WALLET") @map("payment_status") @db.VarChar(50)
+  parkedAt            DateTime  @default(now()) @map("parked_at") @db.Timestamptz(6)
+  exitTime            DateTime? @map("exit_time") @db.Timestamptz(6)
+  createdAt           DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  // Relational associations
+  user        User?       @relation(fields: [userId], references: [id], onDelete: SetNull)
+  location    Location    @relation(fields: [locationId], references: [id], onDelete: Restrict)
+  parkingSlot ParkingSlot @relation(fields: [slotId], references: [id], onDelete: Restrict)
+  receipt     Receipt?
+
+  @@index([plate], map: "idx_bookings_plate")
+  @@index([phone], map: "idx_bookings_phone")
+  @@index([status], map: "idx_bookings_status")
+  @@map("bookings")
+}
+
+// 5. RECEIPTS MODEL (Fiscal Billing & GST Invoices)
+model Receipt {
+  receiptId     String   @id @map("receipt_id") @db.VarChar(50)
+  bookingId     String   @unique @map("booking_id") @db.VarChar(50)
+  subtotal      Decimal  @db.Decimal(10, 2)
+  tax           Decimal  @db.Decimal(10, 2)
+  totalAmount   Decimal  @map("total_amount") @db.Decimal(10, 2)
+  paymentMethod String?  @default("UPI") @map("payment_method") @db.VarChar(30)
+  paymentStatus String?  @default("PAID") @map("payment_status") @db.VarChar(20)
+  durationText  String   @map("duration_text") @db.VarChar(100)
+  billedHours   Int      @map("billed_hours")
+  paidAt        DateTime @default(now()) @map("paid_at") @db.Timestamptz(6)
+
+  // Relational associations
+  booking Booking @relation(fields: [bookingId], references: [bookingId], onDelete: Cascade)
+
+  @@map("receipts")
+}
+
+// 6. VEHICLE OWNERS MODEL (Registered Car & Vehicle Owners)
+model VehicleOwner {
+  id             String    @id @db.VarChar(50)
+  ownerName      String    @map("owner_name") @db.VarChar(100)
+  phone          String    @db.VarChar(20)
+  email          String?   @db.VarChar(100)
+  carNumber      String    @unique @map("car_number") @db.VarChar(30)
+  vehicleMake    String?   @map("vehicle_make") @db.VarChar(50)
+  vehicleModel   String?   @map("vehicle_model") @db.VarChar(50)
+  vehicleType    String?   @default("sedan") @map("vehicle_type") @db.VarChar(20)
+  color          String?   @db.VarChar(30)
+  fuelType       String?   @default("Petrol") @map("fuel_type") @db.VarChar(20)
+  fastagId       String?   @map("fastag_id") @db.VarChar(50)
+  passType       String?   @default("Daily Pass") @map("pass_type") @db.VarChar(30)
+  cityArea       String?   @default("Ahmedabad") @map("city_area") @db.VarChar(100)
+  emergencyPhone String?   @map("emergency_phone") @db.VarChar(20)
+  walletBalance  Decimal   @default(500.00) @map("wallet_balance") @db.Decimal(10, 2)
+  createdAt      DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime  @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([carNumber], map: "idx_vehicle_owners_car_number")
+  @@index([phone], map: "idx_vehicle_owners_phone")
+  @@map("vehicle_owners")
+}
+
+// 7. WALLET TRANSACTIONS MODEL (ACID Financial Audit Trail)
+model WalletTransaction {
+  id           String   @id @db.VarChar(50)
+  userId       String?  @map("user_id") @db.VarChar(50)
+  carNumber    String   @map("car_number") @db.VarChar(30)
+  type         String   @db.VarChar(20) // 'CREDIT' or 'DEBIT'
+  amount       Decimal  @db.Decimal(10, 2)
+  description  String   @db.Text
+  referenceId  String?  @map("reference_id") @db.VarChar(50)
+  balanceAfter Decimal  @map("balance_after") @db.Decimal(10, 2)
+  createdAt    DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  // Relational associations
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@index([userId], map: "idx_wallet_tx_user")
+  @@index([carNumber], map: "idx_wallet_tx_car")
+  @@map("wallet_transactions")
+}
+

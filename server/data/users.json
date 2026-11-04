@@ -1,0 +1,65 @@
+[
+  {
+    "id": "usr_1790253785729_513",
+    "name": "Karan Patel",
+    "phone": "9876543210",
+    "carNumber": "GJ-01-AB-1234",
+    "vehicleType": "compact",
+    "createdAt": "2026-09-24T12:43:05.729Z",
+    "lastLogin": "2026-10-22T08:15:25.849Z"
+  },
+  {
+    "id": "usr_1790253785730_514",
+    "name": "Diya Mehta",
+    "phone": "9825123456",
+    "carNumber": "GJ-01-EV-3399",
+    "vehicleType": "ev",
+    "createdAt": "2026-09-28T09:20:00.000Z",
+    "lastLogin": "2026-10-22T08:25:10.000Z"
+  },
+  {
+    "id": "usr_1790253785731_515",
+    "name": "Aarav Shah",
+    "phone": "9898011223",
+    "carNumber": "GJ-27-AM-8811",
+    "vehicleType": "suv",
+    "createdAt": "2026-10-01T14:10:00.000Z",
+    "lastLogin": "2026-10-22T07:45:00.000Z"
+  },
+  {
+    "id": "usr_1790253785732_516",
+    "name": "Priya Sharma",
+    "phone": "9426055443",
+    "carNumber": "GJ-01-KT-2020",
+    "vehicleType": "compact",
+    "createdAt": "2026-10-05T11:00:00.000Z",
+    "lastLogin": "2026-10-21T18:30:00.000Z"
+  },
+  {
+    "id": "usr_1790253785733_517",
+    "name": "Vikram Desai",
+    "phone": "9712399887",
+    "carNumber": "GJ-18-BQ-4050",
+    "vehicleType": "suv",
+    "createdAt": "2026-10-10T16:40:00.000Z",
+    "lastLogin": "2026-10-22T06:50:00.000Z"
+  },
+  {
+    "id": "usr_1790253785734_518",
+    "name": "Rohan Joshi",
+    "phone": "9909044332",
+    "carNumber": "GJ-01-NX-7700",
+    "vehicleType": "ev",
+    "createdAt": "2026-10-14T08:15:00.000Z",
+    "lastLogin": "2026-10-22T08:00:00.000Z"
+  },
+  {
+    "id": "usr_1790253785735_519",
+    "name": "Ananya Trivedi",
+    "phone": "9879100223",
+    "carNumber": "GJ-06-TR-5544",
+    "vehicleType": "compact",
+    "createdAt": "2026-10-18T15:30:00.000Z",
+    "lastLogin": "2026-10-22T08:10:00.000Z"
+  }
+]

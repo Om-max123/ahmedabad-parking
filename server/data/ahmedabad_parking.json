@@ -1,0 +1,5204 @@
+[
+  {
+    "id": "loc-cg-road",
+    "name": "CG Road Multi-Level Smart Parking",
+    "area": "Navrangpura",
+    "address": "Opp. Municipal Market, C.G. Road, Navrangpura, Ahmedabad - 380009",
+    "lat": 23.0315,
+    "lng": 72.5574,
+    "rating": 4.8,
+    "hourlyRate": 30,
+    "currency": "₹",
+    "slots": [
+      {
+        "id": "B-01",
+        "spotNumber": 1,
+        "zone": "B",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-1137",
+          "driver": "Aarav Patel",
+          "type": "bike",
+          "phone": "9847442720",
+          "parkedAt": 1790241028130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 115.97880790796776,
+          "proximity": 0.21502390468673663,
+          "pressure": 1.121779069193317,
+          "noise": 59.49533267889979,
+          "temperature": 16.975466180359128,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-02",
+        "spotNumber": 2,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 100.8078025355709,
+          "proximity": 0.2979150416638424,
+          "pressure": 1.2857784990139514,
+          "noise": 51.46270010361837,
+          "temperature": 19.54015766898477,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-03",
+        "spotNumber": 3,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-1411",
+          "driver": "Rohan Shah",
+          "type": "compact",
+          "phone": "9866425181",
+          "parkedAt": 1790244148130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 94.04149182086013,
+          "proximity": 3.2684365214259565,
+          "pressure": 3.7874914129045654,
+          "noise": 34.48640779103422,
+          "temperature": 21.456013775690163,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "D-04",
+        "spotNumber": 4,
+        "zone": "D",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-1548",
+          "driver": "Kinjal Parekh",
+          "type": "compact",
+          "phone": "9872943844",
+          "parkedAt": 1790233108130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Overdue"
+        },
+        "sensor": {
+          "ultrasonic": 97.10724010424869,
+          "proximity": 0.8355644239675343,
+          "pressure": 3.9874563735773427,
+          "noise": 43.389946041043935,
+          "temperature": 20.929188144513766,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-05",
+        "spotNumber": 5,
+        "zone": "A",
+        "type": "suv",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 147.67350761476405,
+          "proximity": 7.287626295557289,
+          "pressure": 3.8608430429567573,
+          "noise": 62.30252981799207,
+          "temperature": 24.146618862914313,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-06",
+        "spotNumber": 6,
+        "zone": "D",
+        "type": "vip",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-1822",
+          "driver": "Neha Trivedi",
+          "type": "vip",
+          "phone": "9834382008",
+          "parkedAt": 1790247028130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 87.44107837112008,
+          "proximity": 2.154878205365372,
+          "pressure": 2.6102061756325035,
+          "noise": 55.54971529100137,
+          "temperature": 23.70911147195063,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-07",
+        "spotNumber": 7,
+        "zone": "C",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 84.86377748634806,
+          "proximity": 14.30004665746944,
+          "pressure": 5.521166488327233,
+          "noise": 49.73388098038867,
+          "temperature": 19.2108124507987,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "B-08",
+        "spotNumber": 8,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 95.66187010411076,
+          "proximity": 1.3641456002979715,
+          "pressure": 2.42068462390372,
+          "noise": 55.55328147203905,
+          "temperature": 16.2202464665404,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-09",
+        "spotNumber": 9,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-2233",
+          "driver": "Ananya Dave",
+          "type": "ev",
+          "phone": "9880598790",
+          "parkedAt": 1790246308130,
+          "batteryLevel": 54,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 135.1804403040744,
+          "proximity": 1.2708533362029315,
+          "pressure": 4.801769208211119,
+          "noise": 51.88509284433645,
+          "temperature": 25.094616200449494,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-10",
+        "spotNumber": 10,
+        "zone": "D",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-DX-2370",
+          "driver": "Hiren Solanki",
+          "type": "suv",
+          "phone": "9891991936",
+          "parkedAt": 1790228068130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 128.47767380312135,
+          "proximity": 2.5702450131147043,
+          "pressure": 2.5020854072411933,
+          "noise": 43.46209317629346,
+          "temperature": 16.841742377431782,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-11",
+        "spotNumber": 11,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-2507",
+          "driver": "Siddharth Merchant",
+          "type": "compact",
+          "phone": "9828882338",
+          "parkedAt": 1790235028130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 93.70547384922959,
+          "proximity": 1.3303058297974837,
+          "pressure": 3.2712500184372697,
+          "noise": 48.50417905336149,
+          "temperature": 24.644660067661075,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-12",
+        "spotNumber": 12,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-2644",
+          "driver": "Tejas Raval",
+          "type": "compact",
+          "phone": "9863074417",
+          "parkedAt": 1790234788130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 105.26381949139491,
+          "proximity": 5.953977012106687,
+          "pressure": 1.4664813133141015,
+          "noise": 52.9247304222309,
+          "temperature": 20.567280200282763,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-13",
+        "spotNumber": 13,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-2781",
+          "driver": "Manish Vora",
+          "type": "bike",
+          "phone": "9811752213",
+          "parkedAt": 1790234548130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.86615561007129,
+          "proximity": 0.9551684828809266,
+          "pressure": 2.916161959702928,
+          "noise": 45.31315288345719,
+          "temperature": 19.082359139214233,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-14",
+        "spotNumber": 14,
+        "zone": "C",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-2918",
+          "driver": "Meera Patel",
+          "type": "compact",
+          "phone": "9817072945",
+          "parkedAt": 1790237908130,
+          "batteryLevel": null,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 71.27209181709719,
+          "proximity": 20.701985184206542,
+          "pressure": 3.0376807214200388,
+          "noise": 38.37113289877267,
+          "temperature": 7.560889712188343,
+          "traffic": "Medium",
+          "dynamicPricing": 1.5,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-15",
+        "spotNumber": 15,
+        "zone": "C",
+        "type": "vip",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 81.95123277676988,
+          "proximity": 8.459565014931576,
+          "pressure": 6.538502979017928,
+          "noise": 60.88793633130539,
+          "temperature": 24.59935757977215,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-16",
+        "spotNumber": 16,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 67.9271253825481,
+          "proximity": 14.477808015604161,
+          "pressure": 5.388938092270047,
+          "noise": 47.2413879759378,
+          "temperature": 26.948820669731777,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-17",
+        "spotNumber": 17,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 124.26065004434014,
+          "proximity": 10.761604850130002,
+          "pressure": 6.438315191705523,
+          "noise": 58.766705352669774,
+          "temperature": 17.983561040445306,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-19",
+        "spotNumber": 19,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-3603",
+          "driver": "Rohan Shah",
+          "type": "ev",
+          "phone": "9868256477",
+          "parkedAt": 1790236708130,
+          "batteryLevel": 88,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 100.79981294928214,
+          "proximity": 1.2311262797046667,
+          "pressure": 1.3601628836835231,
+          "noise": 60.13103427229566,
+          "temperature": 17.15150518537134,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-20",
+        "spotNumber": 20,
+        "zone": "B",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-3740",
+          "driver": "Kinjal Parekh",
+          "type": "suv",
+          "phone": "9882207999",
+          "parkedAt": 1790243668130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 95.69598278363303,
+          "proximity": 10.34457032016195,
+          "pressure": 8.021740995960691,
+          "noise": 54.97293182133218,
+          "temperature": 19.079838004004987,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-21",
+        "spotNumber": 21,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-3877",
+          "driver": "Vikram Desai",
+          "type": "bike",
+          "phone": "9812457277",
+          "parkedAt": 1790243428130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 103.19672352346421,
+          "proximity": 2.522909274469404,
+          "pressure": 3.5174985022962364,
+          "noise": 48.07846064493148,
+          "temperature": 13.954006443801969,
+          "traffic": "Low",
+          "dynamicPricing": 1.5,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-22",
+        "spotNumber": 22,
+        "zone": "D",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 132.88487485795173,
+          "proximity": 1.031667317772751,
+          "pressure": 10.688492099342227,
+          "noise": 51.58977681039414,
+          "temperature": 22.469886911028226,
+          "traffic": "High",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-23",
+        "spotNumber": 23,
+        "zone": "A",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 66.81660624933457,
+          "proximity": 1.893801907088391,
+          "pressure": 3.634433118665514,
+          "noise": 46.71648078094073,
+          "temperature": 20.62943265288329,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-24",
+        "spotNumber": 24,
+        "zone": "A",
+        "type": "bike",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 137.15868290722887,
+          "proximity": 14.435868406204872,
+          "pressure": 6.25439443525262,
+          "noise": 55.30207014105081,
+          "temperature": 12.845843991876642,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "C-25",
+        "spotNumber": 25,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-4425",
+          "driver": "Ananya Dave",
+          "type": "bike",
+          "phone": "9855995057",
+          "parkedAt": 1790238868130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.80549897026803,
+          "proximity": 1.3176908250884165,
+          "pressure": 3.104999010865925,
+          "noise": 54.12310194033533,
+          "temperature": 23.866199933328797,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      }
+    ]
+  },
+  {
+    "id": "loc-vastrapur",
+    "name": "Vastrapur Lake Commercial Hub Parking",
+    "area": "Vastrapur",
+    "address": "Near AlphaOne Mall & Vastrapur Lake, Vastrapur, Ahmedabad - 380015",
+    "lat": 23.035,
+    "lng": 72.5293,
+    "rating": 4.7,
+    "hourlyRate": 40,
+    "currency": "₹",
+    "slots": [
+      {
+        "id": "B-01",
+        "spotNumber": 1,
+        "zone": "B",
+        "type": "bike",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 115.97880790796776,
+          "proximity": 0.21502390468673663,
+          "pressure": 1.121779069193317,
+          "noise": 59.49533267889979,
+          "temperature": 16.975466180359128,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-02",
+        "spotNumber": 2,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 100.8078025355709,
+          "proximity": 0.2979150416638424,
+          "pressure": 1.2857784990139514,
+          "noise": 51.46270010361837,
+          "temperature": 19.54015766898477,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-03",
+        "spotNumber": 3,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-1411",
+          "driver": "Rohan Shah",
+          "type": "compact",
+          "phone": "9843682441",
+          "parkedAt": 1790244148130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 94.04149182086013,
+          "proximity": 3.2684365214259565,
+          "pressure": 3.7874914129045654,
+          "noise": 34.48640779103422,
+          "temperature": 21.456013775690163,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "D-04",
+        "spotNumber": 4,
+        "zone": "D",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-1548",
+          "driver": "Kinjal Parekh",
+          "type": "compact",
+          "phone": "9824956617",
+          "parkedAt": 1790233108130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Overdue"
+        },
+        "sensor": {
+          "ultrasonic": 97.10724010424869,
+          "proximity": 0.8355644239675343,
+          "pressure": 3.9874563735773427,
+          "noise": 43.389946041043935,
+          "temperature": 20.929188144513766,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-05",
+        "spotNumber": 5,
+        "zone": "A",
+        "type": "suv",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 147.67350761476405,
+          "proximity": 7.287626295557289,
+          "pressure": 3.8608430429567573,
+          "noise": 62.30252981799207,
+          "temperature": 24.146618862914313,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-06",
+        "spotNumber": 6,
+        "zone": "D",
+        "type": "vip",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 87.44107837112008,
+          "proximity": 2.154878205365372,
+          "pressure": 2.6102061756325035,
+          "noise": 55.54971529100137,
+          "temperature": 23.70911147195063,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-07",
+        "spotNumber": 7,
+        "zone": "C",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 84.86377748634806,
+          "proximity": 14.30004665746944,
+          "pressure": 5.521166488327233,
+          "noise": 49.73388098038867,
+          "temperature": 19.2108124507987,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "B-08",
+        "spotNumber": 8,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 95.66187010411076,
+          "proximity": 1.3641456002979715,
+          "pressure": 2.42068462390372,
+          "noise": 55.55328147203905,
+          "temperature": 16.2202464665404,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-09",
+        "spotNumber": 9,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-2233",
+          "driver": "Ananya Dave",
+          "type": "ev",
+          "phone": "9845877006",
+          "parkedAt": 1790246308130,
+          "batteryLevel": 85,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 135.1804403040744,
+          "proximity": 1.2708533362029315,
+          "pressure": 4.801769208211119,
+          "noise": 51.88509284433645,
+          "temperature": 25.094616200449494,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-10",
+        "spotNumber": 10,
+        "zone": "D",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-DX-2370",
+          "driver": "Hiren Solanki",
+          "type": "suv",
+          "phone": "9839049923",
+          "parkedAt": 1790228068130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 128.47767380312135,
+          "proximity": 2.5702450131147043,
+          "pressure": 2.5020854072411933,
+          "noise": 43.46209317629346,
+          "temperature": 16.841742377431782,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-11",
+        "spotNumber": 11,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-2507",
+          "driver": "Siddharth Merchant",
+          "type": "compact",
+          "phone": "9826239004",
+          "parkedAt": 1790235028130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 93.70547384922959,
+          "proximity": 1.3303058297974837,
+          "pressure": 3.2712500184372697,
+          "noise": 48.50417905336149,
+          "temperature": 24.644660067661075,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-12",
+        "spotNumber": 12,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-2644",
+          "driver": "Tejas Raval",
+          "type": "compact",
+          "phone": "9874344390",
+          "parkedAt": 1790234788130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 105.26381949139491,
+          "proximity": 5.953977012106687,
+          "pressure": 1.4664813133141015,
+          "noise": 52.9247304222309,
+          "temperature": 20.567280200282763,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-13",
+        "spotNumber": 13,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-2781",
+          "driver": "Manish Vora",
+          "type": "bike",
+          "phone": "9856211726",
+          "parkedAt": 1790234548130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.86615561007129,
+          "proximity": 0.9551684828809266,
+          "pressure": 2.916161959702928,
+          "noise": 45.31315288345719,
+          "temperature": 19.082359139214233,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-14",
+        "spotNumber": 14,
+        "zone": "C",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-2918",
+          "driver": "Meera Patel",
+          "type": "compact",
+          "phone": "9855066660",
+          "parkedAt": 1790237908130,
+          "batteryLevel": null,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 71.27209181709719,
+          "proximity": 20.701985184206542,
+          "pressure": 3.0376807214200388,
+          "noise": 38.37113289877267,
+          "temperature": 7.560889712188343,
+          "traffic": "Medium",
+          "dynamicPricing": 1.5,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-15",
+        "spotNumber": 15,
+        "zone": "C",
+        "type": "vip",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 81.95123277676988,
+          "proximity": 8.459565014931576,
+          "pressure": 6.538502979017928,
+          "noise": 60.88793633130539,
+          "temperature": 24.59935757977215,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-16",
+        "spotNumber": 16,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 67.9271253825481,
+          "proximity": 14.477808015604161,
+          "pressure": 5.388938092270047,
+          "noise": 47.2413879759378,
+          "temperature": 26.948820669731777,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-17",
+        "spotNumber": 17,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 124.26065004434014,
+          "proximity": 10.761604850130002,
+          "pressure": 6.438315191705523,
+          "noise": 58.766705352669774,
+          "temperature": 17.983561040445306,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-19",
+        "spotNumber": 19,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-3603",
+          "driver": "Rohan Shah",
+          "type": "ev",
+          "phone": "9832049096",
+          "parkedAt": 1790236708130,
+          "batteryLevel": 87,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 100.79981294928214,
+          "proximity": 1.2311262797046667,
+          "pressure": 1.3601628836835231,
+          "noise": 60.13103427229566,
+          "temperature": 17.15150518537134,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-20",
+        "spotNumber": 20,
+        "zone": "B",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-3740",
+          "driver": "Kinjal Parekh",
+          "type": "suv",
+          "phone": "9835680012",
+          "parkedAt": 1790243668130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 95.69598278363303,
+          "proximity": 10.34457032016195,
+          "pressure": 8.021740995960691,
+          "noise": 54.97293182133218,
+          "temperature": 19.079838004004987,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-21",
+        "spotNumber": 21,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-3877",
+          "driver": "Vikram Desai",
+          "type": "bike",
+          "phone": "9870930660",
+          "parkedAt": 1790243428130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 103.19672352346421,
+          "proximity": 2.522909274469404,
+          "pressure": 3.5174985022962364,
+          "noise": 48.07846064493148,
+          "temperature": 13.954006443801969,
+          "traffic": "Low",
+          "dynamicPricing": 1.5,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-22",
+        "spotNumber": 22,
+        "zone": "D",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 132.88487485795173,
+          "proximity": 1.031667317772751,
+          "pressure": 10.688492099342227,
+          "noise": 51.58977681039414,
+          "temperature": 22.469886911028226,
+          "traffic": "High",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-23",
+        "spotNumber": 23,
+        "zone": "A",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 66.81660624933457,
+          "proximity": 1.893801907088391,
+          "pressure": 3.634433118665514,
+          "noise": 46.71648078094073,
+          "temperature": 20.62943265288329,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-24",
+        "spotNumber": 24,
+        "zone": "A",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-AB-4288",
+          "driver": "Dharmesh Soni",
+          "type": "bike",
+          "phone": "9828504643",
+          "parkedAt": 1790239108130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 137.15868290722887,
+          "proximity": 14.435868406204872,
+          "pressure": 6.25439443525262,
+          "noise": 55.30207014105081,
+          "temperature": 12.845843991876642,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "C-25",
+        "spotNumber": 25,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-4425",
+          "driver": "Ananya Dave",
+          "type": "bike",
+          "phone": "9881300423",
+          "parkedAt": 1790238868130,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.80549897026803,
+          "proximity": 1.3176908250884165,
+          "pressure": 3.104999010865925,
+          "noise": 54.12310194033533,
+          "temperature": 23.866199933328797,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      }
+    ]
+  },
+  {
+    "id": "loc-riverfront",
+    "name": "Sabarmati Riverfront Multi-Bay Facility",
+    "area": "Riverfront West",
+    "address": "West Riverfront Promenade, Near Event Ground, Ahmedabad - 380006",
+    "lat": 23.0304,
+    "lng": 72.5707,
+    "rating": 4.9,
+    "hourlyRate": 25,
+    "currency": "₹",
+    "slots": [
+      {
+        "id": "B-01",
+        "spotNumber": 1,
+        "zone": "B",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-1137",
+          "driver": "Aarav Patel",
+          "type": "bike",
+          "phone": "9874156334",
+          "parkedAt": 1790241028131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 115.97880790796776,
+          "proximity": 0.21502390468673663,
+          "pressure": 1.121779069193317,
+          "noise": 59.49533267889979,
+          "temperature": 16.975466180359128,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-02",
+        "spotNumber": 2,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 100.8078025355709,
+          "proximity": 0.2979150416638424,
+          "pressure": 1.2857784990139514,
+          "noise": 51.46270010361837,
+          "temperature": 19.54015766898477,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-03",
+        "spotNumber": 3,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-1411",
+          "driver": "Rohan Shah",
+          "type": "compact",
+          "phone": "9844185541",
+          "parkedAt": 1790244148131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 94.04149182086013,
+          "proximity": 3.2684365214259565,
+          "pressure": 3.7874914129045654,
+          "noise": 34.48640779103422,
+          "temperature": 21.456013775690163,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "D-04",
+        "spotNumber": 4,
+        "zone": "D",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-1548",
+          "driver": "Kinjal Parekh",
+          "type": "compact",
+          "phone": "9834227091",
+          "parkedAt": 1790233108131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Overdue"
+        },
+        "sensor": {
+          "ultrasonic": 97.10724010424869,
+          "proximity": 0.8355644239675343,
+          "pressure": 3.9874563735773427,
+          "noise": 43.389946041043935,
+          "temperature": 20.929188144513766,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-05",
+        "spotNumber": 5,
+        "zone": "A",
+        "type": "suv",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 147.67350761476405,
+          "proximity": 7.287626295557289,
+          "pressure": 3.8608430429567573,
+          "noise": 62.30252981799207,
+          "temperature": 24.146618862914313,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-06",
+        "spotNumber": 6,
+        "zone": "D",
+        "type": "vip",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-1822",
+          "driver": "Neha Trivedi",
+          "type": "vip",
+          "phone": "9844451745",
+          "parkedAt": 1790247028131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 87.44107837112008,
+          "proximity": 2.154878205365372,
+          "pressure": 2.6102061756325035,
+          "noise": 55.54971529100137,
+          "temperature": 23.70911147195063,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-07",
+        "spotNumber": 7,
+        "zone": "C",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 84.86377748634806,
+          "proximity": 14.30004665746944,
+          "pressure": 5.521166488327233,
+          "noise": 49.73388098038867,
+          "temperature": 19.2108124507987,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "B-08",
+        "spotNumber": 8,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 95.66187010411076,
+          "proximity": 1.3641456002979715,
+          "pressure": 2.42068462390372,
+          "noise": 55.55328147203905,
+          "temperature": 16.2202464665404,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-09",
+        "spotNumber": 9,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-2233",
+          "driver": "Ananya Dave",
+          "type": "ev",
+          "phone": "9812765002",
+          "parkedAt": 1790246308131,
+          "batteryLevel": 67,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 135.1804403040744,
+          "proximity": 1.2708533362029315,
+          "pressure": 4.801769208211119,
+          "noise": 51.88509284433645,
+          "temperature": 25.094616200449494,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-10",
+        "spotNumber": 10,
+        "zone": "D",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-DX-2370",
+          "driver": "Hiren Solanki",
+          "type": "suv",
+          "phone": "9862317845",
+          "parkedAt": 1790228068131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 128.47767380312135,
+          "proximity": 2.5702450131147043,
+          "pressure": 2.5020854072411933,
+          "noise": 43.46209317629346,
+          "temperature": 16.841742377431782,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-11",
+        "spotNumber": 11,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-2507",
+          "driver": "Siddharth Merchant",
+          "type": "compact",
+          "phone": "9812881270",
+          "parkedAt": 1790235028131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 93.70547384922959,
+          "proximity": 1.3303058297974837,
+          "pressure": 3.2712500184372697,
+          "noise": 48.50417905336149,
+          "temperature": 24.644660067661075,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-12",
+        "spotNumber": 12,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-2644",
+          "driver": "Tejas Raval",
+          "type": "compact",
+          "phone": "9851152992",
+          "parkedAt": 1790234788131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 105.26381949139491,
+          "proximity": 5.953977012106687,
+          "pressure": 1.4664813133141015,
+          "noise": 52.9247304222309,
+          "temperature": 20.567280200282763,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-13",
+        "spotNumber": 13,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-2781",
+          "driver": "Manish Vora",
+          "type": "bike",
+          "phone": "9848640213",
+          "parkedAt": 1790234548131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.86615561007129,
+          "proximity": 0.9551684828809266,
+          "pressure": 2.916161959702928,
+          "noise": 45.31315288345719,
+          "temperature": 19.082359139214233,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-14",
+        "spotNumber": 14,
+        "zone": "C",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-2918",
+          "driver": "Meera Patel",
+          "type": "compact",
+          "phone": "9820323925",
+          "parkedAt": 1790237908131,
+          "batteryLevel": null,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 71.27209181709719,
+          "proximity": 20.701985184206542,
+          "pressure": 3.0376807214200388,
+          "noise": 38.37113289877267,
+          "temperature": 7.560889712188343,
+          "traffic": "Medium",
+          "dynamicPricing": 1.5,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-15",
+        "spotNumber": 15,
+        "zone": "C",
+        "type": "vip",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 81.95123277676988,
+          "proximity": 8.459565014931576,
+          "pressure": 6.538502979017928,
+          "noise": 60.88793633130539,
+          "temperature": 24.59935757977215,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-16",
+        "spotNumber": 16,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 67.9271253825481,
+          "proximity": 14.477808015604161,
+          "pressure": 5.388938092270047,
+          "noise": 47.2413879759378,
+          "temperature": 26.948820669731777,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-17",
+        "spotNumber": 17,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 124.26065004434014,
+          "proximity": 10.761604850130002,
+          "pressure": 6.438315191705523,
+          "noise": 58.766705352669774,
+          "temperature": 17.983561040445306,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-19",
+        "spotNumber": 19,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-3603",
+          "driver": "Rohan Shah",
+          "type": "ev",
+          "phone": "9834568429",
+          "parkedAt": 1790236708131,
+          "batteryLevel": 88,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 100.79981294928214,
+          "proximity": 1.2311262797046667,
+          "pressure": 1.3601628836835231,
+          "noise": 60.13103427229566,
+          "temperature": 17.15150518537134,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-20",
+        "spotNumber": 20,
+        "zone": "B",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-3740",
+          "driver": "Kinjal Parekh",
+          "type": "suv",
+          "phone": "9896261518",
+          "parkedAt": 1790243668131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 95.69598278363303,
+          "proximity": 10.34457032016195,
+          "pressure": 8.021740995960691,
+          "noise": 54.97293182133218,
+          "temperature": 19.079838004004987,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-21",
+        "spotNumber": 21,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-3877",
+          "driver": "Vikram Desai",
+          "type": "bike",
+          "phone": "9831931132",
+          "parkedAt": 1790243428131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 103.19672352346421,
+          "proximity": 2.522909274469404,
+          "pressure": 3.5174985022962364,
+          "noise": 48.07846064493148,
+          "temperature": 13.954006443801969,
+          "traffic": "Low",
+          "dynamicPricing": 1.5,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-22",
+        "spotNumber": 22,
+        "zone": "D",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 132.88487485795173,
+          "proximity": 1.031667317772751,
+          "pressure": 10.688492099342227,
+          "noise": 51.58977681039414,
+          "temperature": 22.469886911028226,
+          "traffic": "High",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-23",
+        "spotNumber": 23,
+        "zone": "A",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 66.81660624933457,
+          "proximity": 1.893801907088391,
+          "pressure": 3.634433118665514,
+          "noise": 46.71648078094073,
+          "temperature": 20.62943265288329,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-24",
+        "spotNumber": 24,
+        "zone": "A",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-AB-4288",
+          "driver": "Dharmesh Soni",
+          "type": "bike",
+          "phone": "9822297753",
+          "parkedAt": 1790239108131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 137.15868290722887,
+          "proximity": 14.435868406204872,
+          "pressure": 6.25439443525262,
+          "noise": 55.30207014105081,
+          "temperature": 12.845843991876642,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "C-25",
+        "spotNumber": 25,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-4425",
+          "driver": "Ananya Dave",
+          "type": "bike",
+          "phone": "9864209482",
+          "parkedAt": 1790238868131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.80549897026803,
+          "proximity": 1.3176908250884165,
+          "pressure": 3.104999010865925,
+          "noise": 54.12310194033533,
+          "temperature": 23.866199933328797,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      }
+    ]
+  },
+  {
+    "id": "loc-prahlad-nagar",
+    "name": "Prahlad Nagar Corporate Parking Zone",
+    "area": "SG Highway / Prahlad Nagar",
+    "address": "Corporate Road, Opposite Prahlad Nagar Garden, Ahmedabad - 380015",
+    "lat": 23.0125,
+    "lng": 72.5075,
+    "rating": 4.8,
+    "hourlyRate": 50,
+    "currency": "₹",
+    "slots": [
+      {
+        "id": "B-01",
+        "spotNumber": 1,
+        "zone": "B",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-1137",
+          "driver": "Aarav Patel",
+          "type": "bike",
+          "phone": "9816997489",
+          "parkedAt": 1790241028131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 115.97880790796776,
+          "proximity": 0.21502390468673663,
+          "pressure": 1.121779069193317,
+          "noise": 59.49533267889979,
+          "temperature": 16.975466180359128,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-02",
+        "spotNumber": 2,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 100.8078025355709,
+          "proximity": 0.2979150416638424,
+          "pressure": 1.2857784990139514,
+          "noise": 51.46270010361837,
+          "temperature": 19.54015766898477,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-03",
+        "spotNumber": 3,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-1411",
+          "driver": "Rohan Shah",
+          "type": "compact",
+          "phone": "9838312349",
+          "parkedAt": 1790244148131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 94.04149182086013,
+          "proximity": 3.2684365214259565,
+          "pressure": 3.7874914129045654,
+          "noise": 34.48640779103422,
+          "temperature": 21.456013775690163,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "D-04",
+        "spotNumber": 4,
+        "zone": "D",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-1548",
+          "driver": "Kinjal Parekh",
+          "type": "compact",
+          "phone": "9888580428",
+          "parkedAt": 1790233108131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Overdue"
+        },
+        "sensor": {
+          "ultrasonic": 97.10724010424869,
+          "proximity": 0.8355644239675343,
+          "pressure": 3.9874563735773427,
+          "noise": 43.389946041043935,
+          "temperature": 20.929188144513766,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-05",
+        "spotNumber": 5,
+        "zone": "A",
+        "type": "suv",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 147.67350761476405,
+          "proximity": 7.287626295557289,
+          "pressure": 3.8608430429567573,
+          "noise": 62.30252981799207,
+          "temperature": 24.146618862914313,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-06",
+        "spotNumber": 6,
+        "zone": "D",
+        "type": "vip",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-1822",
+          "driver": "Neha Trivedi",
+          "type": "vip",
+          "phone": "9837968704",
+          "parkedAt": 1790247028131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 87.44107837112008,
+          "proximity": 2.154878205365372,
+          "pressure": 2.6102061756325035,
+          "noise": 55.54971529100137,
+          "temperature": 23.70911147195063,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-07",
+        "spotNumber": 7,
+        "zone": "C",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 84.86377748634806,
+          "proximity": 14.30004665746944,
+          "pressure": 5.521166488327233,
+          "noise": 49.73388098038867,
+          "temperature": 19.2108124507987,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "B-08",
+        "spotNumber": 8,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 95.66187010411076,
+          "proximity": 1.3641456002979715,
+          "pressure": 2.42068462390372,
+          "noise": 55.55328147203905,
+          "temperature": 16.2202464665404,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-09",
+        "spotNumber": 9,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-2233",
+          "driver": "Ananya Dave",
+          "type": "ev",
+          "phone": "9888694331",
+          "parkedAt": 1790246308131,
+          "batteryLevel": 54,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 135.1804403040744,
+          "proximity": 1.2708533362029315,
+          "pressure": 4.801769208211119,
+          "noise": 51.88509284433645,
+          "temperature": 25.094616200449494,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-10",
+        "spotNumber": 10,
+        "zone": "D",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-DX-2370",
+          "driver": "Hiren Solanki",
+          "type": "suv",
+          "phone": "9867791908",
+          "parkedAt": 1790228068131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 128.47767380312135,
+          "proximity": 2.5702450131147043,
+          "pressure": 2.5020854072411933,
+          "noise": 43.46209317629346,
+          "temperature": 16.841742377431782,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-11",
+        "spotNumber": 11,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-2507",
+          "driver": "Siddharth Merchant",
+          "type": "compact",
+          "phone": "9841700994",
+          "parkedAt": 1790235028131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 93.70547384922959,
+          "proximity": 1.3303058297974837,
+          "pressure": 3.2712500184372697,
+          "noise": 48.50417905336149,
+          "temperature": 24.644660067661075,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-12",
+        "spotNumber": 12,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-2644",
+          "driver": "Tejas Raval",
+          "type": "compact",
+          "phone": "9829972934",
+          "parkedAt": 1790234788131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 105.26381949139491,
+          "proximity": 5.953977012106687,
+          "pressure": 1.4664813133141015,
+          "noise": 52.9247304222309,
+          "temperature": 20.567280200282763,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-13",
+        "spotNumber": 13,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-2781",
+          "driver": "Manish Vora",
+          "type": "bike",
+          "phone": "9872691004",
+          "parkedAt": 1790234548131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.86615561007129,
+          "proximity": 0.9551684828809266,
+          "pressure": 2.916161959702928,
+          "noise": 45.31315288345719,
+          "temperature": 19.082359139214233,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-14",
+        "spotNumber": 14,
+        "zone": "C",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-2918",
+          "driver": "Meera Patel",
+          "type": "compact",
+          "phone": "9810421499",
+          "parkedAt": 1790237908131,
+          "batteryLevel": null,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 71.27209181709719,
+          "proximity": 20.701985184206542,
+          "pressure": 3.0376807214200388,
+          "noise": 38.37113289877267,
+          "temperature": 7.560889712188343,
+          "traffic": "Medium",
+          "dynamicPricing": 1.5,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-15",
+        "spotNumber": 15,
+        "zone": "C",
+        "type": "vip",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 81.95123277676988,
+          "proximity": 8.459565014931576,
+          "pressure": 6.538502979017928,
+          "noise": 60.88793633130539,
+          "temperature": 24.59935757977215,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-16",
+        "spotNumber": 16,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 67.9271253825481,
+          "proximity": 14.477808015604161,
+          "pressure": 5.388938092270047,
+          "noise": 47.2413879759378,
+          "temperature": 26.948820669731777,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-17",
+        "spotNumber": 17,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 124.26065004434014,
+          "proximity": 10.761604850130002,
+          "pressure": 6.438315191705523,
+          "noise": 58.766705352669774,
+          "temperature": 17.983561040445306,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-19",
+        "spotNumber": 19,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-3603",
+          "driver": "Rohan Shah",
+          "type": "ev",
+          "phone": "9885018718",
+          "parkedAt": 1790236708131,
+          "batteryLevel": 79,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 100.79981294928214,
+          "proximity": 1.2311262797046667,
+          "pressure": 1.3601628836835231,
+          "noise": 60.13103427229566,
+          "temperature": 17.15150518537134,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-20",
+        "spotNumber": 20,
+        "zone": "B",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-3740",
+          "driver": "Kinjal Parekh",
+          "type": "suv",
+          "phone": "9897162306",
+          "parkedAt": 1790243668131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 95.69598278363303,
+          "proximity": 10.34457032016195,
+          "pressure": 8.021740995960691,
+          "noise": 54.97293182133218,
+          "temperature": 19.079838004004987,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-21",
+        "spotNumber": 21,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-3877",
+          "driver": "Vikram Desai",
+          "type": "bike",
+          "phone": "9879068873",
+          "parkedAt": 1790243428131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 103.19672352346421,
+          "proximity": 2.522909274469404,
+          "pressure": 3.5174985022962364,
+          "noise": 48.07846064493148,
+          "temperature": 13.954006443801969,
+          "traffic": "Low",
+          "dynamicPricing": 1.5,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-22",
+        "spotNumber": 22,
+        "zone": "D",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 132.88487485795173,
+          "proximity": 1.031667317772751,
+          "pressure": 10.688492099342227,
+          "noise": 51.58977681039414,
+          "temperature": 22.469886911028226,
+          "traffic": "High",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-23",
+        "spotNumber": 23,
+        "zone": "A",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 66.81660624933457,
+          "proximity": 1.893801907088391,
+          "pressure": 3.634433118665514,
+          "noise": 46.71648078094073,
+          "temperature": 20.62943265288329,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-24",
+        "spotNumber": 24,
+        "zone": "A",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-AB-4288",
+          "driver": "Dharmesh Soni",
+          "type": "bike",
+          "phone": "9892455290",
+          "parkedAt": 1790239108131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 137.15868290722887,
+          "proximity": 14.435868406204872,
+          "pressure": 6.25439443525262,
+          "noise": 55.30207014105081,
+          "temperature": 12.845843991876642,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "C-25",
+        "spotNumber": 25,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-4425",
+          "driver": "Ananya Dave",
+          "type": "bike",
+          "phone": "9812996951",
+          "parkedAt": 1790238868131,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.80549897026803,
+          "proximity": 1.3176908250884165,
+          "pressure": 3.104999010865925,
+          "noise": 54.12310194033533,
+          "temperature": 23.866199933328797,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      }
+    ]
+  },
+  {
+    "id": "loc-sbr",
+    "name": "Sindhu Bhavan Smart Hub Parking",
+    "area": "Bodakdev",
+    "address": "Sindhu Bhavan Marg, Next to Taj Skyline, Bodakdev, Ahmedabad - 380054",
+    "lat": 23.0456,
+    "lng": 72.5078,
+    "rating": 4.9,
+    "hourlyRate": 60,
+    "currency": "₹",
+    "slots": [
+      {
+        "id": "B-01",
+        "spotNumber": 1,
+        "zone": "B",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-1137",
+          "driver": "Aarav Patel",
+          "type": "bike",
+          "phone": "9889593759",
+          "parkedAt": 1790241028132,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 115.97880790796776,
+          "proximity": 0.21502390468673663,
+          "pressure": 1.121779069193317,
+          "noise": 59.49533267889979,
+          "temperature": 16.975466180359128,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-02",
+        "spotNumber": 2,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 100.8078025355709,
+          "proximity": 0.2979150416638424,
+          "pressure": 1.2857784990139514,
+          "noise": 51.46270010361837,
+          "temperature": 19.54015766898477,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-03",
+        "spotNumber": 3,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-1411",
+          "driver": "Rohan Shah",
+          "type": "compact",
+          "phone": "9861400482",
+          "parkedAt": 1790244148132,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 94.04149182086013,
+          "proximity": 3.2684365214259565,
+          "pressure": 3.7874914129045654,
+          "noise": 34.48640779103422,
+          "temperature": 21.456013775690163,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "D-04",
+        "spotNumber": 4,
+        "zone": "D",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-1548",
+          "driver": "Kinjal Parekh",
+          "type": "compact",
+          "phone": "9854190226",
+          "parkedAt": 1790233108132,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Overdue"
+        },
+        "sensor": {
+          "ultrasonic": 97.10724010424869,
+          "proximity": 0.8355644239675343,
+          "pressure": 3.9874563735773427,
+          "noise": 43.389946041043935,
+          "temperature": 20.929188144513766,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-05",
+        "spotNumber": 5,
+        "zone": "A",
+        "type": "suv",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 147.67350761476405,
+          "proximity": 7.287626295557289,
+          "pressure": 3.8608430429567573,
+          "noise": 62.30252981799207,
+          "temperature": 24.146618862914313,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-06",
+        "spotNumber": 6,
+        "zone": "D",
+        "type": "vip",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-1822",
+          "driver": "Neha Trivedi",
+          "type": "vip",
+          "phone": "9825279232",
+          "parkedAt": 1790247028132,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 87.44107837112008,
+          "proximity": 2.154878205365372,
+          "pressure": 2.6102061756325035,
+          "noise": 55.54971529100137,
+          "temperature": 23.70911147195063,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-07",
+        "spotNumber": 7,
+        "zone": "C",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 84.86377748634806,
+          "proximity": 14.30004665746944,
+          "pressure": 5.521166488327233,
+          "noise": 49.73388098038867,
+          "temperature": 19.2108124507987,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "B-08",
+        "spotNumber": 8,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 95.66187010411076,
+          "proximity": 1.3641456002979715,
+          "pressure": 2.42068462390372,
+          "noise": 55.55328147203905,
+          "temperature": 16.2202464665404,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-09",
+        "spotNumber": 9,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-2233",
+          "driver": "Ananya Dave",
+          "type": "ev",
+          "phone": "9867534134",
+          "parkedAt": 1790246308132,
+          "batteryLevel": 65,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 135.1804403040744,
+          "proximity": 1.2708533362029315,
+          "pressure": 4.801769208211119,
+          "noise": 51.88509284433645,
+          "temperature": 25.094616200449494,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-10",
+        "spotNumber": 10,
+        "zone": "D",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-DX-2370",
+          "driver": "Hiren Solanki",
+          "type": "suv",
+          "phone": "9812660319",
+          "parkedAt": 1790228068132,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 128.47767380312135,
+          "proximity": 2.5702450131147043,
+          "pressure": 2.5020854072411933,
+          "noise": 43.46209317629346,
+          "temperature": 16.841742377431782,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-11",
+        "spotNumber": 11,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-2507",
+          "driver": "Siddharth Merchant",
+          "type": "compact",
+          "phone": "9824345972",
+          "parkedAt": 1790235028132,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 93.70547384922959,
+          "proximity": 1.3303058297974837,
+          "pressure": 3.2712500184372697,
+          "noise": 48.50417905336149,
+          "temperature": 24.644660067661075,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-12",
+        "spotNumber": 12,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-2644",
+          "driver": "Tejas Raval",
+          "type": "compact",
+          "phone": "9849590290",
+          "parkedAt": 1790234788132,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 105.26381949139491,
+          "proximity": 5.953977012106687,
+          "pressure": 1.4664813133141015,
+          "noise": 52.9247304222309,
+          "temperature": 20.567280200282763,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-13",
+        "spotNumber": 13,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-2781",
+          "driver": "Manish Vora",
+          "type": "bike",
+          "phone": "9865516368",
+          "parkedAt": 1790234548132,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.86615561007129,
+          "proximity": 0.9551684828809266,
+          "pressure": 2.916161959702928,
+          "noise": 45.31315288345719,
+          "temperature": 19.082359139214233,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-14",
+        "spotNumber": 14,
+        "zone": "C",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-2918",
+          "driver": "Meera Patel",
+          "type": "compact",
+          "phone": "9874969149",
+          "parkedAt": 1790237908132,
+          "batteryLevel": null,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 71.27209181709719,
+          "proximity": 20.701985184206542,
+          "pressure": 3.0376807214200388,
+          "noise": 38.37113289877267,
+          "temperature": 7.560889712188343,
+          "traffic": "Medium",
+          "dynamicPricing": 1.5,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-15",
+        "spotNumber": 15,
+        "zone": "C",
+        "type": "vip",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 81.95123277676988,
+          "proximity": 8.459565014931576,
+          "pressure": 6.538502979017928,
+          "noise": 60.88793633130539,
+          "temperature": 24.59935757977215,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-16",
+        "spotNumber": 16,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 67.9271253825481,
+          "proximity": 14.477808015604161,
+          "pressure": 5.388938092270047,
+          "noise": 47.2413879759378,
+          "temperature": 26.948820669731777,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-17",
+        "spotNumber": 17,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 124.26065004434014,
+          "proximity": 10.761604850130002,
+          "pressure": 6.438315191705523,
+          "noise": 58.766705352669774,
+          "temperature": 17.983561040445306,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-19",
+        "spotNumber": 19,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-3603",
+          "driver": "Rohan Shah",
+          "type": "ev",
+          "phone": "9873292245",
+          "parkedAt": 1790236708132,
+          "batteryLevel": 71,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 100.79981294928214,
+          "proximity": 1.2311262797046667,
+          "pressure": 1.3601628836835231,
+          "noise": 60.13103427229566,
+          "temperature": 17.15150518537134,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-20",
+        "spotNumber": 20,
+        "zone": "B",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-3740",
+          "driver": "Kinjal Parekh",
+          "type": "suv",
+          "phone": "9850294142",
+          "parkedAt": 1790243668132,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 95.69598278363303,
+          "proximity": 10.34457032016195,
+          "pressure": 8.021740995960691,
+          "noise": 54.97293182133218,
+          "temperature": 19.079838004004987,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-21",
+        "spotNumber": 21,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-3877",
+          "driver": "Vikram Desai",
+          "type": "bike",
+          "phone": "9812371792",
+          "parkedAt": 1790243428132,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 103.19672352346421,
+          "proximity": 2.522909274469404,
+          "pressure": 3.5174985022962364,
+          "noise": 48.07846064493148,
+          "temperature": 13.954006443801969,
+          "traffic": "Low",
+          "dynamicPricing": 1.5,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-22",
+        "spotNumber": 22,
+        "zone": "D",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 132.88487485795173,
+          "proximity": 1.031667317772751,
+          "pressure": 10.688492099342227,
+          "noise": 51.58977681039414,
+          "temperature": 22.469886911028226,
+          "traffic": "High",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-23",
+        "spotNumber": 23,
+        "zone": "A",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 66.81660624933457,
+          "proximity": 1.893801907088391,
+          "pressure": 3.634433118665514,
+          "noise": 46.71648078094073,
+          "temperature": 20.62943265288329,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-24",
+        "spotNumber": 24,
+        "zone": "A",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-AB-4288",
+          "driver": "Dharmesh Soni",
+          "type": "bike",
+          "phone": "9825493398",
+          "parkedAt": 1790239108132,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 137.15868290722887,
+          "proximity": 14.435868406204872,
+          "pressure": 6.25439443525262,
+          "noise": 55.30207014105081,
+          "temperature": 12.845843991876642,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "C-25",
+        "spotNumber": 25,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-4425",
+          "driver": "Ananya Dave",
+          "type": "bike",
+          "phone": "9860798401",
+          "parkedAt": 1790238868132,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.80549897026803,
+          "proximity": 1.3176908250884165,
+          "pressure": 3.104999010865925,
+          "noise": 54.12310194033533,
+          "temperature": 23.866199933328797,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      }
+    ]
+  },
+  {
+    "id": "loc-manek-chowk",
+    "name": "Manek Chowk Heritage Parking Plaza",
+    "area": "Old City",
+    "address": "Near Teen Darwaza & Manek Chowk, Khadia, Ahmedabad - 380001",
+    "lat": 23.0238,
+    "lng": 72.5902,
+    "rating": 4.5,
+    "hourlyRate": 30,
+    "currency": "₹",
+    "slots": [
+      {
+        "id": "B-01",
+        "spotNumber": 1,
+        "zone": "B",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-1137",
+          "driver": "Aarav Patel",
+          "type": "bike",
+          "phone": "9879771761",
+          "parkedAt": 1790241028133,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 115.97880790796776,
+          "proximity": 0.21502390468673663,
+          "pressure": 1.121779069193317,
+          "noise": 59.49533267889979,
+          "temperature": 16.975466180359128,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-02",
+        "spotNumber": 2,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 100.8078025355709,
+          "proximity": 0.2979150416638424,
+          "pressure": 1.2857784990139514,
+          "noise": 51.46270010361837,
+          "temperature": 19.54015766898477,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-03",
+        "spotNumber": 3,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-1411",
+          "driver": "Rohan Shah",
+          "type": "compact",
+          "phone": "9891667158",
+          "parkedAt": 1790244148133,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 94.04149182086013,
+          "proximity": 3.2684365214259565,
+          "pressure": 3.7874914129045654,
+          "noise": 34.48640779103422,
+          "temperature": 21.456013775690163,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "D-04",
+        "spotNumber": 4,
+        "zone": "D",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-1548",
+          "driver": "Kinjal Parekh",
+          "type": "compact",
+          "phone": "9870453809",
+          "parkedAt": 1790233108133,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Overdue"
+        },
+        "sensor": {
+          "ultrasonic": 97.10724010424869,
+          "proximity": 0.8355644239675343,
+          "pressure": 3.9874563735773427,
+          "noise": 43.389946041043935,
+          "temperature": 20.929188144513766,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-05",
+        "spotNumber": 5,
+        "zone": "A",
+        "type": "suv",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 147.67350761476405,
+          "proximity": 7.287626295557289,
+          "pressure": 3.8608430429567573,
+          "noise": 62.30252981799207,
+          "temperature": 24.146618862914313,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-06",
+        "spotNumber": 6,
+        "zone": "D",
+        "type": "vip",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-1822",
+          "driver": "Neha Trivedi",
+          "type": "vip",
+          "phone": "9833558533",
+          "parkedAt": 1790247028133,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 87.44107837112008,
+          "proximity": 2.154878205365372,
+          "pressure": 2.6102061756325035,
+          "noise": 55.54971529100137,
+          "temperature": 23.70911147195063,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-07",
+        "spotNumber": 7,
+        "zone": "C",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 84.86377748634806,
+          "proximity": 14.30004665746944,
+          "pressure": 5.521166488327233,
+          "noise": 49.73388098038867,
+          "temperature": 19.2108124507987,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "B-08",
+        "spotNumber": 8,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 95.66187010411076,
+          "proximity": 1.3641456002979715,
+          "pressure": 2.42068462390372,
+          "noise": 55.55328147203905,
+          "temperature": 16.2202464665404,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-09",
+        "spotNumber": 9,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-2233",
+          "driver": "Ananya Dave",
+          "type": "ev",
+          "phone": "9815489253",
+          "parkedAt": 1790246308133,
+          "batteryLevel": 67,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 135.1804403040744,
+          "proximity": 1.2708533362029315,
+          "pressure": 4.801769208211119,
+          "noise": 51.88509284433645,
+          "temperature": 25.094616200449494,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-10",
+        "spotNumber": 10,
+        "zone": "D",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-DX-2370",
+          "driver": "Hiren Solanki",
+          "type": "suv",
+          "phone": "9824170745",
+          "parkedAt": 1790228068133,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 128.47767380312135,
+          "proximity": 2.5702450131147043,
+          "pressure": 2.5020854072411933,
+          "noise": 43.46209317629346,
+          "temperature": 16.841742377431782,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-11",
+        "spotNumber": 11,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-2507",
+          "driver": "Siddharth Merchant",
+          "type": "compact",
+          "phone": "9866737550",
+          "parkedAt": 1790235028133,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 93.70547384922959,
+          "proximity": 1.3303058297974837,
+          "pressure": 3.2712500184372697,
+          "noise": 48.50417905336149,
+          "temperature": 24.644660067661075,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-12",
+        "spotNumber": 12,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-2644",
+          "driver": "Tejas Raval",
+          "type": "compact",
+          "phone": "9814656128",
+          "parkedAt": 1790234788133,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 105.26381949139491,
+          "proximity": 5.953977012106687,
+          "pressure": 1.4664813133141015,
+          "noise": 52.9247304222309,
+          "temperature": 20.567280200282763,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-13",
+        "spotNumber": 13,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-2781",
+          "driver": "Manish Vora",
+          "type": "bike",
+          "phone": "9832225919",
+          "parkedAt": 1790234548133,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.86615561007129,
+          "proximity": 0.9551684828809266,
+          "pressure": 2.916161959702928,
+          "noise": 45.31315288345719,
+          "temperature": 19.082359139214233,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-14",
+        "spotNumber": 14,
+        "zone": "C",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-2918",
+          "driver": "Meera Patel",
+          "type": "compact",
+          "phone": "9817023515",
+          "parkedAt": 1790237908133,
+          "batteryLevel": null,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 71.27209181709719,
+          "proximity": 20.701985184206542,
+          "pressure": 3.0376807214200388,
+          "noise": 38.37113289877267,
+          "temperature": 7.560889712188343,
+          "traffic": "Medium",
+          "dynamicPricing": 1.5,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-15",
+        "spotNumber": 15,
+        "zone": "C",
+        "type": "vip",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 81.95123277676988,
+          "proximity": 8.459565014931576,
+          "pressure": 6.538502979017928,
+          "noise": 60.88793633130539,
+          "temperature": 24.59935757977215,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-16",
+        "spotNumber": 16,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 67.9271253825481,
+          "proximity": 14.477808015604161,
+          "pressure": 5.388938092270047,
+          "noise": 47.2413879759378,
+          "temperature": 26.948820669731777,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-17",
+        "spotNumber": 17,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 124.26065004434014,
+          "proximity": 10.761604850130002,
+          "pressure": 6.438315191705523,
+          "noise": 58.766705352669774,
+          "temperature": 17.983561040445306,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-19",
+        "spotNumber": 19,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-3603",
+          "driver": "Rohan Shah",
+          "type": "ev",
+          "phone": "9884038280",
+          "parkedAt": 1790236708133,
+          "batteryLevel": 53,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 100.79981294928214,
+          "proximity": 1.2311262797046667,
+          "pressure": 1.3601628836835231,
+          "noise": 60.13103427229566,
+          "temperature": 17.15150518537134,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-20",
+        "spotNumber": 20,
+        "zone": "B",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-3740",
+          "driver": "Kinjal Parekh",
+          "type": "suv",
+          "phone": "9898219313",
+          "parkedAt": 1790243668133,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 95.69598278363303,
+          "proximity": 10.34457032016195,
+          "pressure": 8.021740995960691,
+          "noise": 54.97293182133218,
+          "temperature": 19.079838004004987,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-21",
+        "spotNumber": 21,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-3877",
+          "driver": "Vikram Desai",
+          "type": "bike",
+          "phone": "9856310251",
+          "parkedAt": 1790243428133,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 103.19672352346421,
+          "proximity": 2.522909274469404,
+          "pressure": 3.5174985022962364,
+          "noise": 48.07846064493148,
+          "temperature": 13.954006443801969,
+          "traffic": "Low",
+          "dynamicPricing": 1.5,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-22",
+        "spotNumber": 22,
+        "zone": "D",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 132.88487485795173,
+          "proximity": 1.031667317772751,
+          "pressure": 10.688492099342227,
+          "noise": 51.58977681039414,
+          "temperature": 22.469886911028226,
+          "traffic": "High",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-23",
+        "spotNumber": 23,
+        "zone": "A",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 66.81660624933457,
+          "proximity": 1.893801907088391,
+          "pressure": 3.634433118665514,
+          "noise": 46.71648078094073,
+          "temperature": 20.62943265288329,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-24",
+        "spotNumber": 24,
+        "zone": "A",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-AB-4288",
+          "driver": "Dharmesh Soni",
+          "type": "bike",
+          "phone": "9855949201",
+          "parkedAt": 1790239108133,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 137.15868290722887,
+          "proximity": 14.435868406204872,
+          "pressure": 6.25439443525262,
+          "noise": 55.30207014105081,
+          "temperature": 12.845843991876642,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "C-25",
+        "spotNumber": 25,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-4425",
+          "driver": "Ananya Dave",
+          "type": "bike",
+          "phone": "9819328507",
+          "parkedAt": 1790238868133,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.80549897026803,
+          "proximity": 1.3176908250884165,
+          "pressure": 3.104999010865925,
+          "noise": 54.12310194033533,
+          "temperature": 23.866199933328797,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      }
+    ]
+  },
+  {
+    "id": "loc-law-garden",
+    "name": "Law Garden Urban Parking Deck",
+    "area": "Ellisbridge",
+    "address": "Netaji Road, Opposite Law Garden Khau Gali, Ahmedabad - 380006",
+    "lat": 23.0242,
+    "lng": 72.5598,
+    "rating": 4.6,
+    "hourlyRate": 30,
+    "currency": "₹",
+    "slots": [
+      {
+        "id": "B-01",
+        "spotNumber": 1,
+        "zone": "B",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-1137",
+          "driver": "Aarav Patel",
+          "type": "bike",
+          "phone": "9886622463",
+          "parkedAt": 1790241028134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 115.97880790796776,
+          "proximity": 0.21502390468673663,
+          "pressure": 1.121779069193317,
+          "noise": 59.49533267889979,
+          "temperature": 16.975466180359128,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-02",
+        "spotNumber": 2,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 100.8078025355709,
+          "proximity": 0.2979150416638424,
+          "pressure": 1.2857784990139514,
+          "noise": 51.46270010361837,
+          "temperature": 19.54015766898477,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-03",
+        "spotNumber": 3,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-1411",
+          "driver": "Rohan Shah",
+          "type": "compact",
+          "phone": "9811017563",
+          "parkedAt": 1790244148134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 94.04149182086013,
+          "proximity": 3.2684365214259565,
+          "pressure": 3.7874914129045654,
+          "noise": 34.48640779103422,
+          "temperature": 21.456013775690163,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "D-04",
+        "spotNumber": 4,
+        "zone": "D",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-1548",
+          "driver": "Kinjal Parekh",
+          "type": "compact",
+          "phone": "9859005284",
+          "parkedAt": 1790233108134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Overdue"
+        },
+        "sensor": {
+          "ultrasonic": 97.10724010424869,
+          "proximity": 0.8355644239675343,
+          "pressure": 3.9874563735773427,
+          "noise": 43.389946041043935,
+          "temperature": 20.929188144513766,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-05",
+        "spotNumber": 5,
+        "zone": "A",
+        "type": "suv",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 147.67350761476405,
+          "proximity": 7.287626295557289,
+          "pressure": 3.8608430429567573,
+          "noise": 62.30252981799207,
+          "temperature": 24.146618862914313,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-06",
+        "spotNumber": 6,
+        "zone": "D",
+        "type": "vip",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-1822",
+          "driver": "Neha Trivedi",
+          "type": "vip",
+          "phone": "9894087268",
+          "parkedAt": 1790247028134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 87.44107837112008,
+          "proximity": 2.154878205365372,
+          "pressure": 2.6102061756325035,
+          "noise": 55.54971529100137,
+          "temperature": 23.70911147195063,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-07",
+        "spotNumber": 7,
+        "zone": "C",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 84.86377748634806,
+          "proximity": 14.30004665746944,
+          "pressure": 5.521166488327233,
+          "noise": 49.73388098038867,
+          "temperature": 19.2108124507987,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "B-08",
+        "spotNumber": 8,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 95.66187010411076,
+          "proximity": 1.3641456002979715,
+          "pressure": 2.42068462390372,
+          "noise": 55.55328147203905,
+          "temperature": 16.2202464665404,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-09",
+        "spotNumber": 9,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-2233",
+          "driver": "Ananya Dave",
+          "type": "ev",
+          "phone": "9816246996",
+          "parkedAt": 1790246308134,
+          "batteryLevel": 60,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 135.1804403040744,
+          "proximity": 1.2708533362029315,
+          "pressure": 4.801769208211119,
+          "noise": 51.88509284433645,
+          "temperature": 25.094616200449494,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-10",
+        "spotNumber": 10,
+        "zone": "D",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-DX-2370",
+          "driver": "Hiren Solanki",
+          "type": "suv",
+          "phone": "9840692014",
+          "parkedAt": 1790228068134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 128.47767380312135,
+          "proximity": 2.5702450131147043,
+          "pressure": 2.5020854072411933,
+          "noise": 43.46209317629346,
+          "temperature": 16.841742377431782,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-11",
+        "spotNumber": 11,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-2507",
+          "driver": "Siddharth Merchant",
+          "type": "compact",
+          "phone": "9893390208",
+          "parkedAt": 1790235028134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 93.70547384922959,
+          "proximity": 1.3303058297974837,
+          "pressure": 3.2712500184372697,
+          "noise": 48.50417905336149,
+          "temperature": 24.644660067661075,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-12",
+        "spotNumber": 12,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-2644",
+          "driver": "Tejas Raval",
+          "type": "compact",
+          "phone": "9823147153",
+          "parkedAt": 1790234788134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 105.26381949139491,
+          "proximity": 5.953977012106687,
+          "pressure": 1.4664813133141015,
+          "noise": 52.9247304222309,
+          "temperature": 20.567280200282763,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-13",
+        "spotNumber": 13,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-2781",
+          "driver": "Manish Vora",
+          "type": "bike",
+          "phone": "9880228336",
+          "parkedAt": 1790234548134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.86615561007129,
+          "proximity": 0.9551684828809266,
+          "pressure": 2.916161959702928,
+          "noise": 45.31315288345719,
+          "temperature": 19.082359139214233,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-14",
+        "spotNumber": 14,
+        "zone": "C",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-2918",
+          "driver": "Meera Patel",
+          "type": "compact",
+          "phone": "9821440999",
+          "parkedAt": 1790237908134,
+          "batteryLevel": null,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 71.27209181709719,
+          "proximity": 20.701985184206542,
+          "pressure": 3.0376807214200388,
+          "noise": 38.37113289877267,
+          "temperature": 7.560889712188343,
+          "traffic": "Medium",
+          "dynamicPricing": 1.5,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-15",
+        "spotNumber": 15,
+        "zone": "C",
+        "type": "vip",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 81.95123277676988,
+          "proximity": 8.459565014931576,
+          "pressure": 6.538502979017928,
+          "noise": 60.88793633130539,
+          "temperature": 24.59935757977215,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-16",
+        "spotNumber": 16,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 67.9271253825481,
+          "proximity": 14.477808015604161,
+          "pressure": 5.388938092270047,
+          "noise": 47.2413879759378,
+          "temperature": 26.948820669731777,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-17",
+        "spotNumber": 17,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 124.26065004434014,
+          "proximity": 10.761604850130002,
+          "pressure": 6.438315191705523,
+          "noise": 58.766705352669774,
+          "temperature": 17.983561040445306,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-19",
+        "spotNumber": 19,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-3603",
+          "driver": "Rohan Shah",
+          "type": "ev",
+          "phone": "9824050890",
+          "parkedAt": 1790236708134,
+          "batteryLevel": 73,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 100.79981294928214,
+          "proximity": 1.2311262797046667,
+          "pressure": 1.3601628836835231,
+          "noise": 60.13103427229566,
+          "temperature": 17.15150518537134,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-20",
+        "spotNumber": 20,
+        "zone": "B",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-3740",
+          "driver": "Kinjal Parekh",
+          "type": "suv",
+          "phone": "9879159968",
+          "parkedAt": 1790243668134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 95.69598278363303,
+          "proximity": 10.34457032016195,
+          "pressure": 8.021740995960691,
+          "noise": 54.97293182133218,
+          "temperature": 19.079838004004987,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-21",
+        "spotNumber": 21,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-3877",
+          "driver": "Vikram Desai",
+          "type": "bike",
+          "phone": "9817883193",
+          "parkedAt": 1790243428134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 103.19672352346421,
+          "proximity": 2.522909274469404,
+          "pressure": 3.5174985022962364,
+          "noise": 48.07846064493148,
+          "temperature": 13.954006443801969,
+          "traffic": "Low",
+          "dynamicPricing": 1.5,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-22",
+        "spotNumber": 22,
+        "zone": "D",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 132.88487485795173,
+          "proximity": 1.031667317772751,
+          "pressure": 10.688492099342227,
+          "noise": 51.58977681039414,
+          "temperature": 22.469886911028226,
+          "traffic": "High",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-23",
+        "spotNumber": 23,
+        "zone": "A",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 66.81660624933457,
+          "proximity": 1.893801907088391,
+          "pressure": 3.634433118665514,
+          "noise": 46.71648078094073,
+          "temperature": 20.62943265288329,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-24",
+        "spotNumber": 24,
+        "zone": "A",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-AB-4288",
+          "driver": "Dharmesh Soni",
+          "type": "bike",
+          "phone": "9820239608",
+          "parkedAt": 1790239108134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 137.15868290722887,
+          "proximity": 14.435868406204872,
+          "pressure": 6.25439443525262,
+          "noise": 55.30207014105081,
+          "temperature": 12.845843991876642,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "C-25",
+        "spotNumber": 25,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-4425",
+          "driver": "Ananya Dave",
+          "type": "bike",
+          "phone": "9813708915",
+          "parkedAt": 1790238868134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.80549897026803,
+          "proximity": 1.3176908250884165,
+          "pressure": 3.104999010865925,
+          "noise": 54.12310194033533,
+          "temperature": 23.866199933328797,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      }
+    ]
+  },
+  {
+    "id": "loc-kankaria",
+    "name": "Kankaria Lake Multi-Bay Parking",
+    "area": "Maninagar",
+    "address": "Gate No. 1, Kankaria Lake Front, Maninagar, Ahmedabad - 380028",
+    "lat": 22.9978,
+    "lng": 72.6026,
+    "rating": 4.7,
+    "hourlyRate": 25,
+    "currency": "₹",
+    "slots": [
+      {
+        "id": "B-01",
+        "spotNumber": 1,
+        "zone": "B",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-1137",
+          "driver": "Aarav Patel",
+          "type": "bike",
+          "phone": "9854856783",
+          "parkedAt": 1790241028134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 115.97880790796776,
+          "proximity": 0.21502390468673663,
+          "pressure": 1.121779069193317,
+          "noise": 59.49533267889979,
+          "temperature": 16.975466180359128,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-02",
+        "spotNumber": 2,
+        "zone": "A",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "PMIJHUOH",
+          "driver": "kllmno",
+          "phone": "7566879643",
+          "type": "compact",
+          "parkedAt": 1790330429718,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 100.8078025355709,
+          "proximity": 0.2979150416638424,
+          "pressure": 1.2857784990139514,
+          "noise": 51.46270010361837,
+          "temperature": 19.54015766898477,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-03",
+        "spotNumber": 3,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-1411",
+          "driver": "Rohan Shah",
+          "type": "compact",
+          "phone": "9852574037",
+          "parkedAt": 1790244148134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 94.04149182086013,
+          "proximity": 3.2684365214259565,
+          "pressure": 3.7874914129045654,
+          "noise": 34.48640779103422,
+          "temperature": 21.456013775690163,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "D-04",
+        "spotNumber": 4,
+        "zone": "D",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-1548",
+          "driver": "Kinjal Parekh",
+          "type": "compact",
+          "phone": "9859556861",
+          "parkedAt": 1790233108134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Overdue"
+        },
+        "sensor": {
+          "ultrasonic": 97.10724010424869,
+          "proximity": 0.8355644239675343,
+          "pressure": 3.9874563735773427,
+          "noise": 43.389946041043935,
+          "temperature": 20.929188144513766,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-05",
+        "spotNumber": 5,
+        "zone": "A",
+        "type": "suv",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 147.67350761476405,
+          "proximity": 7.287626295557289,
+          "pressure": 3.8608430429567573,
+          "noise": 62.30252981799207,
+          "temperature": 24.146618862914313,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-06",
+        "spotNumber": 6,
+        "zone": "D",
+        "type": "vip",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-1822",
+          "driver": "Neha Trivedi",
+          "type": "vip",
+          "phone": "9887587285",
+          "parkedAt": 1790247028134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 87.44107837112008,
+          "proximity": 2.154878205365372,
+          "pressure": 2.6102061756325035,
+          "noise": 55.54971529100137,
+          "temperature": 23.70911147195063,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-07",
+        "spotNumber": 7,
+        "zone": "C",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 84.86377748634806,
+          "proximity": 14.30004665746944,
+          "pressure": 5.521166488327233,
+          "noise": 49.73388098038867,
+          "temperature": 19.2108124507987,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "B-08",
+        "spotNumber": 8,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 95.66187010411076,
+          "proximity": 1.3641456002979715,
+          "pressure": 2.42068462390372,
+          "noise": 55.55328147203905,
+          "temperature": 16.2202464665404,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-09",
+        "spotNumber": 9,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-2233",
+          "driver": "Ananya Dave",
+          "type": "ev",
+          "phone": "9826758912",
+          "parkedAt": 1790246308134,
+          "batteryLevel": 72,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 135.1804403040744,
+          "proximity": 1.2708533362029315,
+          "pressure": 4.801769208211119,
+          "noise": 51.88509284433645,
+          "temperature": 25.094616200449494,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-10",
+        "spotNumber": 10,
+        "zone": "D",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-DX-2370",
+          "driver": "Hiren Solanki",
+          "type": "suv",
+          "phone": "9867685847",
+          "parkedAt": 1790228068134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 128.47767380312135,
+          "proximity": 2.5702450131147043,
+          "pressure": 2.5020854072411933,
+          "noise": 43.46209317629346,
+          "temperature": 16.841742377431782,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-11",
+        "spotNumber": 11,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-2507",
+          "driver": "Siddharth Merchant",
+          "type": "compact",
+          "phone": "9812691037",
+          "parkedAt": 1790235028134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 93.70547384922959,
+          "proximity": 1.3303058297974837,
+          "pressure": 3.2712500184372697,
+          "noise": 48.50417905336149,
+          "temperature": 24.644660067661075,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-12",
+        "spotNumber": 12,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-2644",
+          "driver": "Tejas Raval",
+          "type": "compact",
+          "phone": "9893289407",
+          "parkedAt": 1790234788134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 105.26381949139491,
+          "proximity": 5.953977012106687,
+          "pressure": 1.4664813133141015,
+          "noise": 52.9247304222309,
+          "temperature": 20.567280200282763,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-13",
+        "spotNumber": 13,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-2781",
+          "driver": "Manish Vora",
+          "type": "bike",
+          "phone": "9836106306",
+          "parkedAt": 1790234548134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.86615561007129,
+          "proximity": 0.9551684828809266,
+          "pressure": 2.916161959702928,
+          "noise": 45.31315288345719,
+          "temperature": 19.082359139214233,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-14",
+        "spotNumber": 14,
+        "zone": "C",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-2918",
+          "driver": "Meera Patel",
+          "type": "compact",
+          "phone": "9866571345",
+          "parkedAt": 1790237908134,
+          "batteryLevel": null,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 71.27209181709719,
+          "proximity": 20.701985184206542,
+          "pressure": 3.0376807214200388,
+          "noise": 38.37113289877267,
+          "temperature": 7.560889712188343,
+          "traffic": "Medium",
+          "dynamicPricing": 1.5,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-15",
+        "spotNumber": 15,
+        "zone": "C",
+        "type": "vip",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 81.95123277676988,
+          "proximity": 8.459565014931576,
+          "pressure": 6.538502979017928,
+          "noise": 60.88793633130539,
+          "temperature": 24.59935757977215,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-16",
+        "spotNumber": 16,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 67.9271253825481,
+          "proximity": 14.477808015604161,
+          "pressure": 5.388938092270047,
+          "noise": 47.2413879759378,
+          "temperature": 26.948820669731777,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-17",
+        "spotNumber": 17,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 124.26065004434014,
+          "proximity": 10.761604850130002,
+          "pressure": 6.438315191705523,
+          "noise": 58.766705352669774,
+          "temperature": 17.983561040445306,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-19",
+        "spotNumber": 19,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-3603",
+          "driver": "Rohan Shah",
+          "type": "ev",
+          "phone": "9893265311",
+          "parkedAt": 1790236708134,
+          "batteryLevel": 80,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 100.79981294928214,
+          "proximity": 1.2311262797046667,
+          "pressure": 1.3601628836835231,
+          "noise": 60.13103427229566,
+          "temperature": 17.15150518537134,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-20",
+        "spotNumber": 20,
+        "zone": "B",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-3740",
+          "driver": "Kinjal Parekh",
+          "type": "suv",
+          "phone": "9851507427",
+          "parkedAt": 1790243668134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 95.69598278363303,
+          "proximity": 10.34457032016195,
+          "pressure": 8.021740995960691,
+          "noise": 54.97293182133218,
+          "temperature": 19.079838004004987,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-21",
+        "spotNumber": 21,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-3877",
+          "driver": "Vikram Desai",
+          "type": "bike",
+          "phone": "9848012965",
+          "parkedAt": 1790243428134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 103.19672352346421,
+          "proximity": 2.522909274469404,
+          "pressure": 3.5174985022962364,
+          "noise": 48.07846064493148,
+          "temperature": 13.954006443801969,
+          "traffic": "Low",
+          "dynamicPricing": 1.5,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-22",
+        "spotNumber": 22,
+        "zone": "D",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 132.88487485795173,
+          "proximity": 1.031667317772751,
+          "pressure": 10.688492099342227,
+          "noise": 51.58977681039414,
+          "temperature": 22.469886911028226,
+          "traffic": "High",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-23",
+        "spotNumber": 23,
+        "zone": "A",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 66.81660624933457,
+          "proximity": 1.893801907088391,
+          "pressure": 3.634433118665514,
+          "noise": 46.71648078094073,
+          "temperature": 20.62943265288329,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-24",
+        "spotNumber": 24,
+        "zone": "A",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-AB-4288",
+          "driver": "Dharmesh Soni",
+          "type": "bike",
+          "phone": "9852243326",
+          "parkedAt": 1790239108134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 137.15868290722887,
+          "proximity": 14.435868406204872,
+          "pressure": 6.25439443525262,
+          "noise": 55.30207014105081,
+          "temperature": 12.845843991876642,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "C-25",
+        "spotNumber": 25,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-4425",
+          "driver": "Ananya Dave",
+          "type": "bike",
+          "phone": "9819313701",
+          "parkedAt": 1790238868134,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.80549897026803,
+          "proximity": 1.3176908250884165,
+          "pressure": 3.104999010865925,
+          "noise": 54.12310194033533,
+          "temperature": 23.866199933328797,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      }
+    ]
+  },
+  {
+    "id": "loc-thaltej",
+    "name": "Thaltej Metro & Commercial Hub Parking",
+    "area": "Thaltej",
+    "address": "Near Thaltej Cross Roads & Thaltej Metro Station, SG Highway, Thaltej, Ahmedabad - 380059",
+    "lat": 23.0514,
+    "lng": 72.5126,
+    "rating": 4.8,
+    "hourlyRate": 35,
+    "currency": "₹",
+    "slots": [
+      {
+        "id": "B-01",
+        "spotNumber": 1,
+        "zone": "B",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-1137",
+          "driver": "Aarav Patel",
+          "type": "bike",
+          "phone": "9864425212",
+          "parkedAt": 1793809514953,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 115.97880790796776,
+          "proximity": 0.21502390468673663,
+          "pressure": 1.121779069193317,
+          "noise": 59.49533267889979,
+          "temperature": 16.975466180359128,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-02",
+        "spotNumber": 2,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 100.8078025355709,
+          "proximity": 0.2979150416638424,
+          "pressure": 1.2857784990139514,
+          "noise": 51.46270010361837,
+          "temperature": 19.54015766898477,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-03",
+        "spotNumber": 3,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-1411",
+          "driver": "Rohan Shah",
+          "type": "compact",
+          "phone": "9822038323",
+          "parkedAt": 1793812634953,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 94.04149182086013,
+          "proximity": 3.2684365214259565,
+          "pressure": 3.7874914129045654,
+          "noise": 34.48640779103422,
+          "temperature": 21.456013775690163,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "D-04",
+        "spotNumber": 4,
+        "zone": "D",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-1548",
+          "driver": "Kinjal Parekh",
+          "type": "compact",
+          "phone": "9866760156",
+          "parkedAt": 1793801594953,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Overdue"
+        },
+        "sensor": {
+          "ultrasonic": 97.10724010424869,
+          "proximity": 0.8355644239675343,
+          "pressure": 3.9874563735773427,
+          "noise": 43.389946041043935,
+          "temperature": 20.929188144513766,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-05",
+        "spotNumber": 5,
+        "zone": "A",
+        "type": "suv",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 147.67350761476405,
+          "proximity": 7.287626295557289,
+          "pressure": 3.8608430429567573,
+          "noise": 62.30252981799207,
+          "temperature": 24.146618862914313,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-06",
+        "spotNumber": 6,
+        "zone": "D",
+        "type": "vip",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-1822",
+          "driver": "Neha Trivedi",
+          "type": "vip",
+          "phone": "9875023019",
+          "parkedAt": 1793815514953,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 87.44107837112008,
+          "proximity": 2.154878205365372,
+          "pressure": 2.6102061756325035,
+          "noise": 55.54971529100137,
+          "temperature": 23.70911147195063,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-07",
+        "spotNumber": 7,
+        "zone": "C",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 84.86377748634806,
+          "proximity": 14.30004665746944,
+          "pressure": 5.521166488327233,
+          "noise": 49.73388098038867,
+          "temperature": 19.2108124507987,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "B-08",
+        "spotNumber": 8,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 95.66187010411076,
+          "proximity": 1.3641456002979715,
+          "pressure": 2.42068462390372,
+          "noise": 55.55328147203905,
+          "temperature": 16.2202464665404,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-09",
+        "spotNumber": 9,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-2233",
+          "driver": "Ananya Dave",
+          "type": "ev",
+          "phone": "9827097730",
+          "parkedAt": 1793814794953,
+          "batteryLevel": 94,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 135.1804403040744,
+          "proximity": 1.2708533362029315,
+          "pressure": 4.801769208211119,
+          "noise": 51.88509284433645,
+          "temperature": 25.094616200449494,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-10",
+        "spotNumber": 10,
+        "zone": "D",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-DX-2370",
+          "driver": "Hiren Solanki",
+          "type": "suv",
+          "phone": "9838122076",
+          "parkedAt": 1793796554953,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 128.47767380312135,
+          "proximity": 2.5702450131147043,
+          "pressure": 2.5020854072411933,
+          "noise": 43.46209317629346,
+          "temperature": 16.841742377431782,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-11",
+        "spotNumber": 11,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-2507",
+          "driver": "Siddharth Merchant",
+          "type": "compact",
+          "phone": "9835983812",
+          "parkedAt": 1793803514953,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 93.70547384922959,
+          "proximity": 1.3303058297974837,
+          "pressure": 3.2712500184372697,
+          "noise": 48.50417905336149,
+          "temperature": 24.644660067661075,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-12",
+        "spotNumber": 12,
+        "zone": "B",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-2644",
+          "driver": "Tejas Raval",
+          "type": "compact",
+          "phone": "9811783131",
+          "parkedAt": 1793803274953,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 105.26381949139491,
+          "proximity": 5.953977012106687,
+          "pressure": 1.4664813133141015,
+          "noise": 52.9247304222309,
+          "temperature": 20.567280200282763,
+          "traffic": "Medium",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-13",
+        "spotNumber": 13,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-2781",
+          "driver": "Manish Vora",
+          "type": "bike",
+          "phone": "9871037614",
+          "parkedAt": 1793803034953,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.86615561007129,
+          "proximity": 0.9551684828809266,
+          "pressure": 2.916161959702928,
+          "noise": 45.31315288345719,
+          "temperature": 19.082359139214233,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-14",
+        "spotNumber": 14,
+        "zone": "C",
+        "type": "compact",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-RF-2918",
+          "driver": "Meera Patel",
+          "type": "compact",
+          "phone": "9828009569",
+          "parkedAt": 1793806394953,
+          "batteryLevel": null,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 71.27209181709719,
+          "proximity": 20.701985184206542,
+          "pressure": 3.0376807214200388,
+          "noise": 38.37113289877267,
+          "temperature": 7.560889712188343,
+          "traffic": "Medium",
+          "dynamicPricing": 1.5,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-15",
+        "spotNumber": 15,
+        "zone": "C",
+        "type": "vip",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 81.95123277676988,
+          "proximity": 8.459565014931576,
+          "pressure": 6.538502979017928,
+          "noise": 60.88793633130539,
+          "temperature": 24.59935757977215,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-16",
+        "spotNumber": 16,
+        "zone": "B",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 67.9271253825481,
+          "proximity": 14.477808015604161,
+          "pressure": 5.388938092270047,
+          "noise": 47.2413879759378,
+          "temperature": 26.948820669731777,
+          "traffic": "Low",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-17",
+        "spotNumber": 17,
+        "zone": "A",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 124.26065004434014,
+          "proximity": 10.761604850130002,
+          "pressure": 6.438315191705523,
+          "noise": 58.766705352669774,
+          "temperature": 17.983561040445306,
+          "traffic": "Low",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-19",
+        "spotNumber": 19,
+        "zone": "B",
+        "type": "ev",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-EV-3603",
+          "driver": "Rohan Shah",
+          "type": "ev",
+          "phone": "9854153516",
+          "parkedAt": 1793805194953,
+          "batteryLevel": 87,
+          "userType": "Visitor",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 100.79981294928214,
+          "proximity": 1.2311262797046667,
+          "pressure": 1.3601628836835231,
+          "noise": 60.13103427229566,
+          "temperature": 17.15150518537134,
+          "traffic": "Medium",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "B-20",
+        "spotNumber": 20,
+        "zone": "B",
+        "type": "suv",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-KL-3740",
+          "driver": "Kinjal Parekh",
+          "type": "suv",
+          "phone": "9894113477",
+          "parkedAt": 1793812154953,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 95.69598278363303,
+          "proximity": 10.34457032016195,
+          "pressure": 8.021740995960691,
+          "noise": 54.97293182133218,
+          "temperature": 19.079838004004987,
+          "traffic": "High",
+          "dynamicPricing": 0.8,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "C-21",
+        "spotNumber": 21,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-MC-3877",
+          "driver": "Vikram Desai",
+          "type": "bike",
+          "phone": "9878214327",
+          "parkedAt": 1793811914953,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 103.19672352346421,
+          "proximity": 2.522909274469404,
+          "pressure": 3.5174985022962364,
+          "noise": 48.07846064493148,
+          "temperature": 13.954006443801969,
+          "traffic": "Low",
+          "dynamicPricing": 1.5,
+          "spotSize": "Oversized"
+        }
+      },
+      {
+        "id": "D-22",
+        "spotNumber": 22,
+        "zone": "D",
+        "type": "compact",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 132.88487485795173,
+          "proximity": 1.031667317772751,
+          "pressure": 10.688492099342227,
+          "noise": 51.58977681039414,
+          "temperature": 22.469886911028226,
+          "traffic": "High",
+          "dynamicPricing": 1,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-23",
+        "spotNumber": 23,
+        "zone": "A",
+        "type": "ev",
+        "status": "available",
+        "vehicle": null,
+        "sensor": {
+          "ultrasonic": 66.81660624933457,
+          "proximity": 1.893801907088391,
+          "pressure": 3.634433118665514,
+          "noise": 46.71648078094073,
+          "temperature": 20.62943265288329,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      },
+      {
+        "id": "A-24",
+        "spotNumber": 24,
+        "zone": "A",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-AB-4288",
+          "driver": "Dharmesh Soni",
+          "type": "bike",
+          "phone": "9861892383",
+          "parkedAt": 1793807594953,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Unpaid"
+        },
+        "sensor": {
+          "ultrasonic": 137.15868290722887,
+          "proximity": 14.435868406204872,
+          "pressure": 6.25439443525262,
+          "noise": 55.30207014105081,
+          "temperature": 12.845843991876642,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Compact"
+        }
+      },
+      {
+        "id": "C-25",
+        "spotNumber": 25,
+        "zone": "C",
+        "type": "bike",
+        "status": "occupied",
+        "vehicle": {
+          "plate": "GJ-01-BC-4425",
+          "driver": "Ananya Dave",
+          "type": "bike",
+          "phone": "9861462087",
+          "parkedAt": 1793807354953,
+          "batteryLevel": null,
+          "userType": "Registered",
+          "paymentStatus": "Paid"
+        },
+        "sensor": {
+          "ultrasonic": 112.80549897026803,
+          "proximity": 1.3176908250884165,
+          "pressure": 3.104999010865925,
+          "noise": 54.12310194033533,
+          "temperature": 23.866199933328797,
+          "traffic": "Medium",
+          "dynamicPricing": 1.2,
+          "spotSize": "Standard"
+        }
+      }
+    ]
+  }
+]
