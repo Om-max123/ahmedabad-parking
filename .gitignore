@@ -32,3 +32,6 @@ dist-ssr
 server/data/pgdata
 .vercel
 .env*
+
+# Demo video (large binary, kept out of git)
+demo-video/*.mp4

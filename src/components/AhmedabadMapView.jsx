@@ -54,6 +54,25 @@ export default function AhmedabadMapView({ locations, selectedLocationId, onSele
     }
   }, [apiKey]);
 
+  // Billing / quota errors don't call gm_authFailure; Google draws an error box instead.
+  // Watch for it and fall back to the built-in city map.
+  useEffect(() => {
+    if (!gmapLoaded || !mapRef.current) return;
+    const container = mapRef.current;
+    const observer = new MutationObserver(() => {
+      const failed = container.querySelector('.gm-err-container, .gm-err-content')
+        || /can.t load Google Maps correctly/i.test(container.textContent || '');
+      if (failed) {
+        observer.disconnect();
+        googleMapInstance.current = null;
+        setGmapError('Google Maps is unavailable for this key (billing not enabled). Showing built-in city map.');
+        setGmapLoaded(false);
+      }
+    });
+    observer.observe(container, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, [gmapLoaded]);
+
   // Initialize or update Google Map instance
   useEffect(() => {
     if (!gmapLoaded || !mapRef.current || !window.google || !window.google.maps) return;
@@ -258,10 +277,10 @@ export default function AhmedabadMapView({ locations, selectedLocationId, onSele
       {/* Map Display Container */}
       <div className="map-canvas-container">
         {apiKey && !gmapError ? (
-          <div ref={mapRef} className="google-map-element" style={{ width: '100%', height: '360px', borderRadius: '12px' }} />
+          <div key="google-map" ref={mapRef} className="google-map-element" style={{ width: '100%', height: '360px', borderRadius: '12px' }} />
         ) : (
           /* Interactive High-Def Ahmedabad Radar Map */
-          <div className="ahmedabad-radar-map">
+          <div key="radar-map" className="ahmedabad-radar-map">
             {/* Grid overlay & Riverfront decorative line */}
             <div className="map-grid-bg"></div>
             <div className="sabarmati-river-visual" title="Sabarmati River">
