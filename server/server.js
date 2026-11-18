@@ -5,7 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { generateSlotsFromDataset, parseCSVDataset } from './datasetLoader.js';
-import { initPostgres, isDbConnected, query, getClient, getDbEngine } from './db.js';
+import { initPostgres, isDbConnected, query, getClient, getDbEngine, isCloudDatabaseConfigured, getDbInitError, getDbHost } from './db.js';
 import { signToken, requireAuth, optionalAuth, requireAdmin, verifyGoogleIdToken } from './auth.js';
 import { applySafeDatabaseEnhancements } from './safe-migrate.js';
 
@@ -346,6 +346,9 @@ function ensureDatabaseReady() {
         } catch (err) {
           console.warn('[PostgreSQL] Initialization enhancements notice:', err.message);
         }
+      } else {
+        // Let the next request try again instead of caching the failure for this instance
+        dbReadyPromise = null;
       }
       return connected;
     })();
@@ -359,16 +362,23 @@ app.use(async (req, res, next) => {
   } catch (err) {
     console.error('[PostgreSQL] Bootstrap error:', err.message);
   }
+  // With a cloud database configured, never serve from the local JSON fallback
+  if (isCloudDatabaseConfigured() && !isDbConnected() && req.path !== '/api/health') {
+    return res.status(503).json({ error: 'Database is temporarily unavailable. Please try again in a moment.' });
+  }
   next();
 });
 
 // Health check endpoint
 app.get('/api/health', async (req, res) => {
+  const dbHost = getDbHost();
   const dbStatus = !isDbConnected()
-    ? 'JSON Local Storage (Fallback Mode)'
+    ? (isCloudDatabaseConfigured() ? `Cloud PostgreSQL unreachable (${getDbInitError() || 'unknown error'})` : 'JSON Local Storage (Fallback Mode)')
     : getDbEngine() === 'pglite'
       ? 'PostgreSQL (Embedded PGlite Engine)'
-      : 'PostgreSQL (Active & Connected)';
+      : dbHost.includes('supabase')
+        ? 'PostgreSQL (Supabase)'
+        : 'PostgreSQL (Active & Connected)';
   res.json({
     status: 'ok',
     system: 'Ahmedabad Smart Parking Management System',

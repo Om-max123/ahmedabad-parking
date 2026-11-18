@@ -12,20 +12,32 @@ const __dirname = path.dirname(__filename);
 const { Pool } = pg;
 
 // Parse connection options
-const connectionString = process.env.DATABASE_URL;
-const isCloudPostgres = connectionString && (
-  connectionString.includes('supabase') || 
-  connectionString.includes('neon.tech') || 
-  connectionString.includes('render.com') ||
-  connectionString.includes('railway') ||
-  connectionString.includes('sslmode=require')
-);
+// DATABASE_URL is the project's own setting; the Supabase / Neon Vercel integrations set POSTGRES_URL.
+const rawConnectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL || '';
+const isLocalDatabase = !rawConnectionString || /@(localhost|127\.0\.0\.1)(:|\/)/.test(rawConnectionString);
+const isCloudPostgres = Boolean(rawConnectionString) && !isLocalDatabase;
+const isServerless = Boolean(process.env.VERCEL);
 
-const poolConfig = connectionString
+// node-postgres treats sslmode=require in the URL as full certificate verification, which
+// rejects Supabase's pooler certificate chain. Strip it and configure SSL explicitly instead.
+function withoutSslParams(url) {
+  try {
+    const u = new URL(url);
+    ['sslmode', 'sslrootcert', 'sslcert', 'sslkey', 'supa'].forEach((k) => u.searchParams.delete(k));
+    return u.toString();
+  } catch {
+    return url;
+  }
+}
+
+const poolConfig = rawConnectionString
   ? {
-      connectionString,
+      connectionString: isCloudPostgres ? withoutSslParams(rawConnectionString) : rawConnectionString,
       ssl: isCloudPostgres ? { rejectUnauthorized: false } : false,
-      connectionTimeoutMillis: 3000,
+      connectionTimeoutMillis: isCloudPostgres ? 10000 : 3000,
+      // Each serverless instance keeps only a few connections; Supabase's pooler multiplexes them
+      max: isServerless ? 3 : 10,
+      idleTimeoutMillis: isServerless ? 10000 : 30000,
     }
   : {
       user: process.env.PGUSER || 'postgres',
@@ -114,6 +126,23 @@ export const pool = {
 };
 
 let postgresConnected = false;
+let lastInitError = null;
+
+export function isCloudDatabaseConfigured() {
+  return isCloudPostgres;
+}
+
+export function getDbInitError() {
+  return lastInitError;
+}
+
+export function getDbHost() {
+  try {
+    return rawConnectionString ? new URL(rawConnectionString).hostname : 'localhost';
+  } catch {
+    return 'unknown';
+  }
+}
 
 export function getDbEngine() {
   return activeEngine;
@@ -129,10 +158,19 @@ export async function initPostgres() {
     const res = await client.query('SELECT NOW() AS now, current_database() AS db');
     client.release();
     activeEngine = 'postgres';
+    lastInitError = null;
     console.log(`[PostgreSQL] Connected successfully to database: "${res.rows[0].db}" at ${res.rows[0].now}`);
   } catch (err) {
     const msg = err?.message || (typeof err === 'object' ? JSON.stringify(err) : String(err));
     console.warn(`[PostgreSQL] External server unavailable (${msg || 'connection refused'}).`);
+    if (isCloudPostgres) {
+      // A cloud database (Supabase/Neon) is configured: never fall back to a per-instance
+      // in-memory database, or each serverless instance would see different users and bookings.
+      lastInitError = msg || 'connection failed';
+      postgresConnected = false;
+      console.error('[PostgreSQL] Cloud database configured but unreachable; not falling back to embedded engine.');
+      return false;
+    }
     try {
       await startPglite();
       console.log('[PostgreSQL] Using embedded PostgreSQL engine (PGlite).');
