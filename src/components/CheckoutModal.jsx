@@ -67,7 +67,7 @@ export default function CheckoutModal({
         throw new Error(data.error || 'Failed to checkout bay');
       }
 
-      onCheckoutConfirm(slot.id, totalAmount, data.receipt);
+      onCheckoutConfirm(slot.id, data.receipt?.totalAmount ?? totalAmount, data.receipt);
     } catch (err) {
       setError(err.message || 'Checkout failed. Please try again.');
     } finally {

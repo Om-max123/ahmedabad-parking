@@ -51,7 +51,7 @@ export default function ReceiptModal({ isOpen, onClose, receipt }) {
 
             <div className="receipt-row">
               <span className="r-label">Parking Bay</span>
-              <span className="r-val font-semibold">Bay {receipt.slotId} (Zone {receipt.zone})</span>
+              <span className="r-val font-semibold">Bay {receipt.slotId}{receipt.zone ? ` (Zone ${receipt.zone})` : ''}</span>
             </div>
 
             <div className="receipt-row">

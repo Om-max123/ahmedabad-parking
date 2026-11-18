@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { playSound } from '../utils/sound';
 
 export default function LoginModal({ isOpen, onClose, currentUser, onLoginSuccess }) {
-  const [tab, setTab] = useState('google'); // 'google' or 'dev'
+  const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || '';
+  // Open the mobile-number form directly unless Google OAuth is configured
+  const [tab, setTab] = useState(googleClientId ? 'google' : 'dev'); // 'google' or 'dev'
   const [name, setName] = useState(currentUser?.name || '');
   const [phone, setPhone] = useState(currentUser?.phone || '');
   const [carNumber, setCarNumber] = useState(currentUser?.carNumber || '');
@@ -12,7 +14,6 @@ export default function LoginModal({ isOpen, onClose, currentUser, onLoginSucces
   const [googleLoading, setGoogleLoading] = useState(false);
 
   const googleBtnRef = useRef(null);
-  const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || '';
 
   const handleGoogleCredentialResponse = useCallback(async (response) => {
     if (!response || !response.credential) {
@@ -182,7 +183,8 @@ export default function LoginModal({ isOpen, onClose, currentUser, onLoginSucces
           <button className="modal-close-btn" onClick={() => { playSound('click'); onClose(); }} aria-label="Close modal">✕</button>
         </div>
 
-        {/* Tab Switcher */}
+        {/* Tab Switcher (only when Google OAuth is configured) */}
+        {googleClientId && (
         <div style={{ display: 'flex', borderBottom: '1px solid rgba(255,255,255,0.08)', background: 'rgba(0,0,0,0.15)' }}>
           <button
             type="button"
@@ -224,9 +226,10 @@ export default function LoginModal({ isOpen, onClose, currentUser, onLoginSucces
             }}
             onClick={() => setTab('dev')}
           >
-            <span>Development / Demo Sign-In</span>
+            <span>Mobile Number Sign-In</span>
           </button>
         </div>
+        )}
 
         {error && (
           <div className="modal-error-banner" role="alert" style={{ margin: '14px 20px 0' }}>

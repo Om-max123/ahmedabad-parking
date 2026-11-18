@@ -44,14 +44,13 @@ export default function ParkingSlotCard({
   }, [slot, vehicleTypeInfo, hourlyRate]);
 
   const isOccupied = slot.status === 'occupied' && slot.vehicle;
-  const isMyVehicle = isOccupied && currentUser && (
-    (slot.vehicle.plate && slot.vehicle.plate === currentUser.carNumber) ||
-    currentUser.role === 'admin'
-  );
+  const isMyVehicle = Boolean(isOccupied && currentUser && slot.vehicle.plate && slot.vehicle.plate === currentUser.carNumber);
+  // Admin operators may release any bay, but it is only "Your Pass" for the driver's own car
+  const canRelease = isMyVehicle || Boolean(isOccupied && currentUser?.role === 'admin');
 
   const handleClick = () => {
     if (isOccupied) {
-      if (isMyVehicle) {
+      if (canRelease) {
         onSelectOccupied(slot);
       }
     } else {
@@ -156,7 +155,7 @@ export default function ParkingSlotCard({
                 <span className="bill-amount">{currency}{accruedFee}</span>
               </div>
 
-              {isMyVehicle ? (
+              {canRelease ? (
                 <button 
                   className="checkout-btn"
                   onClick={(e) => {

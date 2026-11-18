@@ -92,11 +92,11 @@ export default function DatabaseModal({ isOpen, onClose }) {
                 <h2 className="modal-title">PostgreSQL Database Architecture &amp; pgAdmin</h2>
                 <span className={`db-status-chip ${dbInfo?.connected ? 'connected' : 'dual-mode'}`}>
                   <span className="dot-pulse"></span>
-                  {dbInfo?.connected ? 'PostgreSQL 16 Active (Port 5432)' : 'Dual-Engine Active (JSON Fallback)'}
+                  {dbInfo?.connected ? 'PostgreSQL 16 Active' : 'Dual-Engine Active (JSON Fallback)'}
                 </span>
               </div>
               <p className="modal-subtitle">
-                6 Relational Tables • 79 Columns • ACID Row-Level Locking • Real-Time pgAdmin Reflection
+                7 Relational Tables • 104 Columns • ACID Row-Level Locking • Real-Time pgAdmin Reflection
               </p>
             </div>
           </div>
@@ -109,7 +109,7 @@ export default function DatabaseModal({ isOpen, onClose }) {
             className={`db-tab-btn ${activeTab === 'schema' ? 'active' : ''}`}
             onClick={() => setActiveTab('schema')}
           >
-            Relational Schema (6 Tables)
+            Relational Schema (7 Tables)
           </button>
           <button 
             className={`db-tab-btn ${activeTab === 'pgadmin' ? 'active' : ''}`}
@@ -139,19 +139,19 @@ export default function DatabaseModal({ isOpen, onClose }) {
               <div className="db-overview-strip">
                 <div className="db-kpi-item">
                   <span className="kpi-label">Database Engine</span>
-                  <span className="kpi-val">PostgreSQL 15+ / Neon</span>
+                  <span className="kpi-val">PostgreSQL 16 (Neon / PGlite)</span>
                 </div>
                 <div className="db-kpi-item">
                   <span className="kpi-label">Total Tables</span>
-                  <span className="kpi-val">5 Normalized Tables</span>
+                  <span className="kpi-val">7 Relational Tables</span>
                 </div>
                 <div className="db-kpi-item">
                   <span className="kpi-label">Total Columns</span>
-                  <span className="kpi-val">63 System Columns</span>
+                  <span className="kpi-val">104 Columns</span>
                 </div>
                 <div className="db-kpi-item">
                   <span className="kpi-label">Performance Indexes</span>
-                  <span className="kpi-val">6 B-Tree Indexes</span>
+                  <span className="kpi-val">14 B-Tree Indexes</span>
                 </div>
               </div>
 

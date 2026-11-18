@@ -20,7 +20,7 @@ export default function MyBookingsModal({
 
   const handleCancelClick = async (booking) => {
     const cost = booking.receipt?.totalAmount || (booking.hourlyRate * (booking.bookedDurationHours || 2) * 1.05);
-    const confirmMsg = `Cancel reservation for Bay ${booking.slotId} (${booking.locationName})?\n\n₹${Number(cost).toFixed(2)} will be refunded immediately back to your Smart Wallet in PostgreSQL.`;
+    const confirmMsg = `Cancel reservation for Bay ${booking.slotId} (${booking.locationName})?\n\n₹${Number(cost).toFixed(2)} will be refunded in full if cancelled within 15 minutes of booking; after that, only unused hours are refunded to your Smart Wallet.`;
     if (!window.confirm(confirmMsg)) return;
 
     playSound('click');

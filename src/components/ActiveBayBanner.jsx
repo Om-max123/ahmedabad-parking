@@ -38,7 +38,7 @@ export default function ActiveBayBanner({
 
   const handleCancel = async (booking) => {
     const cost = booking.prepaidAmount || (booking.hourlyRate * (booking.bookedDurationHours || 2) * 1.05);
-    const confirmMsg = `Release & Cancel Bay ${booking.slotId} at ${booking.locationName}?\n\n₹${Number(cost).toFixed(2)} will be refunded immediately back to your Smart Wallet in PostgreSQL.`;
+    const confirmMsg = `Release & Cancel Bay ${booking.slotId} at ${booking.locationName}?\n\n₹${Number(cost).toFixed(2)} will be refunded in full if cancelled within 15 minutes of booking; after that, only unused hours are refunded to your Smart Wallet.`;
     if (!window.confirm(confirmMsg)) return;
 
     playSound('click');
@@ -147,7 +147,7 @@ export default function ActiveBayBanner({
               {cancellingId === currentBooking.bookingId ? (
                 'Refunding...'
               ) : (
-                '🔄 Release & Cancel (100% Refund)'
+                '🔄 Release & Cancel (Refund)'
               )}
             </button>
           </div>

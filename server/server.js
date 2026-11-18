@@ -320,6 +320,18 @@ async function autoSeedPostgresIfEmpty() {
 // Initial local data load
 loadData();
 
+// Dataset-simulated parked cars carry old timestamps; keep them looking like live sessions
+// (arrived within the last 3 hours). Bays with a real customer booking are never touched.
+async function refreshSimulatedOccupancy() {
+  await query(`
+    UPDATE parking_slots s
+    SET parked_at = NOW() - (INTERVAL '10 minutes' + random() * INTERVAL '170 minutes')
+    WHERE s.status = 'occupied'
+      AND (s.parked_at IS NULL OR s.parked_at < NOW() - INTERVAL '12 hours')
+      AND NOT EXISTS (SELECT 1 FROM bookings b WHERE b.slot_id = s.id AND b.status = 'active');
+  `);
+}
+
 // One-time database bootstrap (shared by local server and Vercel serverless function)
 let dbReadyPromise = null;
 function ensureDatabaseReady() {
@@ -330,6 +342,7 @@ function ensureDatabaseReady() {
         try {
           await applySafeDatabaseEnhancements();
           await autoSeedPostgresIfEmpty();
+          await refreshSimulatedOccupancy();
         } catch (err) {
           console.warn('[PostgreSQL] Initialization enhancements notice:', err.message);
         }
@@ -733,6 +746,12 @@ app.get('/api/locations/:id', async (req, res) => {
 // ============================================================
 
 // Register or Login Driver
+// Mobile numbers that sign in as municipal admin operators (demo admin profile included)
+const ADMIN_PHONES = (process.env.ADMIN_PHONES || '9909988776').split(',').map(p => p.trim()).filter(Boolean);
+function isAdminPhone(phone) {
+  return ADMIN_PHONES.includes(phone);
+}
+
 app.post('/api/auth/login', async (req, res) => {
   const { name, phone, carNumber, vehicleType = 'compact' } = req.body;
 
@@ -753,29 +772,34 @@ app.post('/api/auth/login', async (req, res) => {
 
   if (isDbConnected()) {
     try {
-      // Find existing user by phone or car number
-      const existing = await query(
-        'SELECT * FROM users WHERE phone = $1 OR car_number = $2 LIMIT 1',
-        [cleanPhone, cleanCar]
-      );
+      // The mobile number identifies the account; a plate may belong to only one account
+      const plateOwner = await query('SELECT id, phone FROM users WHERE car_number = $1 LIMIT 1', [cleanCar]);
+      if (plateOwner.rows.length > 0 && plateOwner.rows[0].phone !== cleanPhone) {
+        return res.status(409).json({
+          error: `Vehicle ${cleanCar} is already registered to a different mobile number. Sign in with that number or use another vehicle.`
+        });
+      }
+
+      const existing = await query('SELECT * FROM users WHERE phone = $1 LIMIT 1', [cleanPhone]);
+      const role = isAdminPhone(cleanPhone) ? 'admin' : null;
 
       let userObj;
       if (existing.rows.length > 0) {
         const u = existing.rows[0];
         const updateRes = await query(`
           UPDATE users
-          SET name = $1, car_number = $2, vehicle_type = $3, last_login = CURRENT_TIMESTAMP
+          SET name = $1, car_number = $2, vehicle_type = $3, role = COALESCE($5, role), last_login = CURRENT_TIMESTAMP
           WHERE id = $4
           RETURNING *;
-        `, [cleanName, cleanCar, cleanType, u.id]);
+        `, [cleanName, cleanCar, cleanType, u.id, role]);
         userObj = updateRes.rows[0];
       } else {
         const newId = `usr_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
         const insertRes = await query(`
           INSERT INTO users (id, name, phone, car_number, vehicle_type, wallet_balance, role, created_at, last_login)
-          VALUES ($1, $2, $3, $4, $5, 500.00, 'driver', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+          VALUES ($1, $2, $3, $4, $5, 500.00, $6, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
           RETURNING *;
-        `, [newId, cleanName, cleanPhone, cleanCar, cleanType]);
+        `, [newId, cleanName, cleanPhone, cleanCar, cleanType, role || 'driver']);
         userObj = insertRes.rows[0];
       }
 
@@ -1191,7 +1215,10 @@ app.get('/api/admin/overview', requireAuth, requireAdmin, async (req, res) => {
           COUNT(*) FILTER (WHERE status = 'cancelled')::int AS cancelled
         FROM bookings
       `);
-      const revenueStats = await query('SELECT COALESCE(SUM(total_amount), 0)::float AS total_revenue FROM receipts');
+      const revenueStats = await query(`
+        SELECT COALESCE(SUM(r.total_amount - COALESCE(b.refund_amount, 0)), 0)::float AS total_revenue
+        FROM receipts r LEFT JOIN bookings b ON b.booking_id = r.booking_id
+      `);
       const userStats = await query('SELECT COUNT(*)::int AS users_count FROM users');
 
       return res.json({
@@ -1369,7 +1396,7 @@ app.post('/api/wallet/topup', requireAuth, async (req, res) => {
         );
         if (existTx.rows.length > 0) {
           await client.query('ROLLBACK');
-          const uRes = await query('SELECT wallet_balance FROM users WHERE id = $1', [userId]);
+          const uRes = await client.query('SELECT wallet_balance FROM users WHERE id = $1', [userId]);
           return res.json({
             success: true,
             message: 'Transaction already completed (Idempotent)',
@@ -1910,6 +1937,9 @@ app.post('/api/bookings/book', requireAuth, async (req, res) => {
 // Atomically releases slot and refunds prepaid amount to wallet.
 // ============================================================
 
+// Bookings cancelled within this window are refunded in full
+const FREE_CANCEL_MINUTES = 15;
+
 app.post('/api/bookings/:id/cancel', requireAuth, async (req, res) => {
   const { id } = req.params;
   const userId = req.user.id;
@@ -1949,11 +1979,21 @@ app.post('/api/bookings/:id/cancel', requireAuth, async (req, res) => {
       // 4. Calculate Refund Amount
       let refundAmount = 0;
       const rcpRes = await client.query('SELECT total_amount FROM receipts WHERE booking_id = $1;', [booking.booking_id]);
+      let paidAmount;
       if (rcpRes.rows.length > 0) {
-        refundAmount = parseFloat(rcpRes.rows[0].total_amount);
+        paidAmount = parseFloat(rcpRes.rows[0].total_amount);
       } else {
         const subtotal = parseFloat(booking.hourly_rate) * (booking.booked_duration_hours || 2);
-        refundAmount = Number((subtotal * 1.05).toFixed(2));
+        paidAmount = Number((subtotal * 1.05).toFixed(2));
+      }
+      // Full refund within the free-cancellation window; afterwards only unused prepaid hours
+      const usedMinutes = booking.parked_at ? Math.max(0, (Date.now() - new Date(booking.parked_at).getTime()) / 60000) : 0;
+      if (usedMinutes <= FREE_CANCEL_MINUTES) {
+        refundAmount = paidAmount;
+      } else {
+        const usedHours = Math.ceil(usedMinutes / 60);
+        const usedCost = Number((usedHours * parseFloat(booking.hourly_rate) * 1.05).toFixed(2));
+        refundAmount = Math.max(0, Number((paidAmount - usedCost).toFixed(2)));
       }
 
       // 5. Credit User Wallet in PostgreSQL
@@ -1986,9 +2026,10 @@ app.post('/api/bookings/:id/cancel', requireAuth, async (req, res) => {
       // 7. Update Booking Status to Cancelled
       await client.query(`
         UPDATE bookings
-        SET status = 'cancelled', payment_status = 'REFUNDED', exit_time = CURRENT_TIMESTAMP
+        SET status = 'cancelled', payment_status = 'REFUNDED', exit_time = CURRENT_TIMESTAMP,
+            refund_amount = $2, cancelled_at = CURRENT_TIMESTAMP
         WHERE booking_id = $1;
-      `, [booking.booking_id]);
+      `, [booking.booking_id, refundAmount]);
 
       // 8. Atomically Free the Parking Slot
       await client.query(`
@@ -2159,16 +2200,50 @@ app.post('/api/bookings/checkout', requireAuth, async (req, res) => {
       // 4. Update or Insert Fiscal Receipt (Avoiding duplicate key violations)
       const rcpCheck = await client.query('SELECT * FROM receipts WHERE booking_id = $1;', [booking.booking_id]);
       let receipt;
+      let overstayCharge = 0;
 
       if (rcpCheck.rows.length > 0) {
-        // Update existing receipt with actual exit details
+        // Prepaid booking: charge only for hours beyond the prepaid duration
         const existingRcp = rcpCheck.rows[0];
+        const hourlyRate = parseFloat(booking.hourly_rate) || 30;
+        const prepaidHours = parseInt(booking.booked_duration_hours, 10) || parseInt(existingRcp.billed_hours, 10) || 1;
+        const overstayHours = Math.max(0, billedHours - prepaidHours);
+        const overstaySubtotal = Number((overstayHours * hourlyRate).toFixed(2));
+        const overstayTax = Number((overstaySubtotal * 0.05).toFixed(2));
+        overstayCharge = Number((overstaySubtotal + overstayTax).toFixed(2));
+
+        if (overstayCharge > 0 && booking.user_id) {
+          const balRes = await client.query('SELECT wallet_balance FROM users WHERE id = $1 FOR UPDATE;', [booking.user_id]);
+          if (balRes.rows.length > 0) {
+            const newBalance = Number((parseFloat(balRes.rows[0].wallet_balance || 0) - overstayCharge).toFixed(2));
+            await client.query('UPDATE users SET wallet_balance = $1 WHERE id = $2;', [newBalance, booking.user_id]);
+            await client.query('UPDATE vehicle_owners SET wallet_balance = $1, updated_at = CURRENT_TIMESTAMP WHERE car_number = $2;', [newBalance, booking.plate]);
+            await client.query(`
+              INSERT INTO wallet_transactions (
+                id, user_id, car_number, type, amount, description, reference_id, balance_after, created_at
+              ) VALUES ($1, $2, $3, 'DEBIT', $4, $5, $6, $7, CURRENT_TIMESTAMP);
+            `, [
+              `WTX-${Date.now().toString().slice(-6)}-${Math.floor(100 + Math.random() * 900)}`,
+              booking.user_id, booking.plate, overstayCharge,
+              `Overstay Charge: ${overstayHours} extra hr beyond ${prepaidHours} hr prepaid`,
+              booking.booking_id, newBalance
+            ]);
+          }
+        }
+
         const updateRcp = await client.query(`
           UPDATE receipts
-          SET duration_text = $1, billed_hours = $2
-          WHERE booking_id = $3
+          SET duration_text = $1,
+              billed_hours = $2,
+              subtotal = subtotal + $3,
+              tax = tax + $4,
+              total_amount = total_amount + $5
+          WHERE booking_id = $6
           RETURNING *;
-        `, [`${hours}h ${minutes}m (${billedHours} hr elapsed)`, billedHours, booking.booking_id]);
+        `, [
+          `${hours}h ${minutes}m (${prepaidHours} hr prepaid${overstayHours > 0 ? ` + ${overstayHours} hr overstay` : ''})`,
+          Math.max(prepaidHours, billedHours), overstaySubtotal, overstayTax, overstayCharge, booking.booking_id
+        ]);
         receipt = updateRcp.rows[0];
       } else {
         const hourlyRate = parseFloat(booking.hourly_rate) || 30;
@@ -2204,10 +2279,20 @@ app.post('/api/bookings/checkout', requireAuth, async (req, res) => {
         WHERE id = $1;
       `, [booking.slot_id]);
 
+      const metaRes = await client.query(
+        'SELECT l.name AS location_name, s.zone FROM parking_slots s JOIN locations l ON l.id = s.location_id WHERE s.id = $1;',
+        [booking.slot_id]
+      );
+      const meta = metaRes.rows[0] || {};
+
       await client.query('COMMIT');
 
       const receiptData = {
         receiptId: receipt.receipt_id,
+        locationName: meta.location_name,
+        zone: meta.zone,
+        subtotal: parseFloat(receipt.subtotal),
+        tax: parseFloat(receipt.tax),
         bookingId: booking.booking_id,
         plate: booking.plate,
         driver: booking.driver_name,
@@ -2217,14 +2302,18 @@ app.post('/api/bookings/checkout', requireAuth, async (req, res) => {
         exitTime: now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: true }),
         durationText: `${hours}h ${minutes}m`,
         totalAmount: parseFloat(receipt.total_amount),
+        overstayCharge,
         paymentMethod: receipt.payment_method,
         date: now.toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' }),
       };
 
       return res.json({
         success: true,
-        message: `Bay ${cleanSlotCode} released successfully. Session concluded.`,
+        message: overstayCharge > 0
+          ? `Bay ${cleanSlotCode} released. Overstay charge of ₹${overstayCharge.toFixed(2)} deducted from wallet.`
+          : `Bay ${cleanSlotCode} released successfully. Session concluded.`,
         receipt: receiptData,
+        overstayCharge,
       });
     } catch (err) {
       await client.query('ROLLBACK');
@@ -2642,6 +2731,23 @@ app.delete('/api/vehicle-owners/:id', async (req, res) => {
   res.json({ success: true, message: 'Vehicle owner deleted' });
 });
 
+// Today's collected parking revenue (sum of receipts paid today, India time)
+app.get('/api/stats/revenue-today', async (req, res) => {
+  if (!isDbConnected()) return res.json({ totalRevenue: 0 });
+  try {
+    const result = await query(`
+      SELECT COALESCE(SUM(r.total_amount - COALESCE(b.refund_amount, 0)), 0) AS total
+      FROM receipts r
+      LEFT JOIN bookings b ON b.booking_id = r.booking_id
+      WHERE (r.paid_at AT TIME ZONE 'Asia/Kolkata')::date = (NOW() AT TIME ZONE 'Asia/Kolkata')::date;
+    `);
+    res.json({ totalRevenue: parseFloat(result.rows[0].total) });
+  } catch (err) {
+    console.error('[PostgreSQL] revenue-today error:', err.message);
+    res.status(500).json({ error: 'Failed to load revenue' });
+  }
+});
+
 // Telemetry Dataset Summary
 app.get('/api/dataset/summary', (req, res) => {
   const records = parseCSVDataset();
@@ -2668,7 +2774,7 @@ app.get('/api/dataset/summary', (req, res) => {
 });
 
 // Reset all slots to dataset initial state (Admin operation)
-app.post('/api/reset', async (req, res) => {
+app.post('/api/reset', requireAuth, requireAdmin, async (req, res) => {
   locations = initLocationsFromDataset();
   saveLocations();
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function AnalyticsView({ locations = [], slots = [], totalRevenue = 1850 }) {
+export default function AnalyticsView({ locations = [], slots = [], totalRevenue = 0 }) {
   // Aggregate stats across all Ahmedabad locations
   const totalSlotsAcrossAll = locations.reduce((sum, l) => sum + (l.slots?.length || 0), 0) || (slots.length * locations.length);
   const totalOccupiedCurrent = slots.filter(s => s.status === 'occupied').length;

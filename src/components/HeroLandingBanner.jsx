@@ -128,7 +128,7 @@ export default function HeroLandingBanner({
             <div className="pillar-icon">💳</div>
             <div className="pillar-text">
               <strong>Smart Mobility Wallet Ledger</strong>
-              <p>ACID-compliant transactions in PostgreSQL. Cancel anytime for automatic 100% wallet refund.</p>
+              <p>ACID-compliant transactions in PostgreSQL. Free cancellation within 15 minutes, then unused hours are refunded to your wallet.</p>
             </div>
           </div>
 

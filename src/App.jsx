@@ -52,7 +52,7 @@ export default function App() {
 
   // Bookings state
   const [myBookings, setMyBookings] = useState([]);
-  const [totalRevenue, setTotalRevenue] = useState(1850);
+  const [totalRevenue, setTotalRevenue] = useState(0);
 
   // Filters
   const [searchQuery, setSearchQuery] = useState('');
@@ -199,10 +199,22 @@ export default function App() {
     }
   }, []);
 
+  // Today's collections from the receipts ledger
+  const fetchRevenue = useCallback(async () => {
+    try {
+      const res = await fetch('/api/stats/revenue-today');
+      if (res.ok) {
+        const data = await res.json();
+        setTotalRevenue(data.totalRevenue || 0);
+      }
+    } catch {}
+  }, []);
+
   useEffect(() => {
     fetchLocations();
     checkDatabaseStatus();
-  }, [fetchLocations, checkDatabaseStatus]);
+    fetchRevenue();
+  }, [fetchLocations, checkDatabaseStatus, fetchRevenue]);
 
   useEffect(() => {
     if (selectedLocationId) {
@@ -299,6 +311,7 @@ export default function App() {
   };
 
   const handleBookingSuccess = (booking) => {
+    fetchRevenue();
     fetchCurrentLocation(selectedLocationId);
     fetchLocations();
     if (authToken) {
@@ -319,7 +332,7 @@ export default function App() {
   };
 
   const handleCheckoutConfirm = (slotId, amount, receiptData) => {
-    setTotalRevenue((prev) => prev + amount);
+    fetchRevenue();
     setIsCheckoutModalOpen(false);
     setCurrentReceipt(receiptData);
     setIsReceiptModalOpen(true);
@@ -394,6 +407,7 @@ export default function App() {
     if (data.newBalance !== undefined) {
       setWalletBalance(data.newBalance);
     }
+    fetchRevenue();
     fetchCurrentLocation(selectedLocationId);
     fetchLocations();
     fetchMyBookings(authToken);
@@ -403,7 +417,7 @@ export default function App() {
   // Administrative Reset
   const handleResetLot = () => {
     if (window.confirm('Reset all Ahmedabad parking bays to default dataset state?')) {
-      fetch('/api/reset', { method: 'POST' })
+      fetch('/api/reset', { method: 'POST', headers: { Authorization: `Bearer ${authToken}` } })
         .then(() => {
           fetchLocations();
           fetchCurrentLocation(selectedLocationId);
@@ -772,7 +786,7 @@ export default function App() {
           <span>Ahmedabad Municipal Corporation • Smart Mobility & Parking Directorate</span>
           <span className="footer-sep">•</span>
           <button className="footer-link-btn" onClick={() => setIsDbModalOpen(true)}>
-            PostgreSQL Relational Schema (7 Tables, 97 Columns)
+            PostgreSQL Relational Schema (7 Tables, 104 Columns)
           </button>
         </div>
         <div className="footer-right">
