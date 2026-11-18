@@ -137,9 +137,11 @@ async function checkSchemaCurrent() {
         EXISTS (SELECT 1 FROM information_schema.columns
                 WHERE table_schema = 'public' AND table_name = 'bookings' AND column_name = 'cancelled_at') AS has_column,
         EXISTS (SELECT 1 FROM pg_indexes
-                WHERE schemaname = 'public' AND indexname = 'idx_bookings_idempotency') AS has_index;
+                WHERE schemaname = 'public' AND indexname = 'idx_bookings_idempotency') AS has_index,
+        EXISTS (SELECT 1 FROM information_schema.tables
+                WHERE table_schema = 'public' AND table_name = 'login_history') AS has_login_history;
     `);
-    return Boolean(res.rows[0]?.has_column && res.rows[0]?.has_index);
+    return Boolean(res.rows[0]?.has_column && res.rows[0]?.has_index && res.rows[0]?.has_login_history);
   } catch {
     return false;
   }

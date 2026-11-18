@@ -522,7 +522,7 @@ app.get('/api/database/info', async (req, res) => {
 
 // Fetch Live Table Rows for Database Explorer
 app.get('/api/database/table/:name', async (req, res) => {
-  const allowedTables = ['vehicle_owners', 'locations', 'users', 'parking_slots', 'bookings', 'receipts', 'wallet_transactions'];
+  const allowedTables = ['vehicle_owners', 'locations', 'users', 'parking_slots', 'bookings', 'receipts', 'wallet_transactions', 'login_history'];
   const tableName = req.params.name.toLowerCase();
 
   if (!allowedTables.includes(tableName)) {
@@ -533,6 +533,8 @@ app.get('/api/database/table/:name', async (req, res) => {
     try {
       const orderClause = tableName === 'receipts'
         ? 'ORDER BY paid_at DESC'
+        : tableName === 'login_history'
+          ? 'ORDER BY logged_in_at DESC'
         : (tableName === 'vehicle_owners' || tableName === 'users' || tableName === 'wallet_transactions' || tableName === 'bookings')
           ? 'ORDER BY created_at DESC'
           : '';
@@ -764,6 +766,22 @@ app.get('/api/locations/:id', async (req, res) => {
 // ============================================================
 
 // Register or Login Driver
+// Append-only sign-in log: every login is kept, even when details change later
+async function recordLogin(userObj, details, method) {
+  try {
+    await query(`
+      INSERT INTO login_history (id, user_id, name, phone, car_number, vehicle_type, login_method, logged_in_at)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, CURRENT_TIMESTAMP);
+    `, [
+      `lh_${Date.now()}_${Math.floor(Math.random() * 100000)}`,
+      userObj.id, details.name || userObj.name, details.phone || userObj.phone,
+      details.carNumber || userObj.car_number, details.vehicleType || userObj.vehicle_type, method
+    ]);
+  } catch (err) {
+    console.error('[PostgreSQL] login_history insert error:', err.message);
+  }
+}
+
 // Mobile numbers that sign in as municipal admin operators (demo admin profile included)
 const ADMIN_PHONES = (process.env.ADMIN_PHONES || '9909988776').split(',').map(p => p.trim()).filter(Boolean);
 function isAdminPhone(phone) {
@@ -806,7 +824,8 @@ app.post('/api/auth/login', async (req, res) => {
         const u = existing.rows[0];
         const updateRes = await query(`
           UPDATE users
-          SET name = $1, car_number = $2, vehicle_type = $3, role = COALESCE($5, role), last_login = CURRENT_TIMESTAMP
+          SET name = CASE WHEN name IS NULL OR name = '' OR name = 'Driver' THEN $1 ELSE name END,
+              car_number = $2, vehicle_type = $3, role = COALESCE($5, role), last_login = CURRENT_TIMESTAMP
           WHERE id = $4
           RETURNING *;
         `, [cleanName, cleanCar, cleanType, u.id, role]);
@@ -840,6 +859,8 @@ app.post('/api/auth/login', async (req, res) => {
         cleanType === 'compact' ? 'sedan' : cleanType,
         parseFloat(userObj.wallet_balance || 500.00)
       ]);
+
+      await recordLogin(userObj, { name: cleanName, phone: cleanPhone, carNumber: cleanCar, vehicleType: cleanType }, 'mobile');
 
       const token = signToken({
         userId: userObj.id,
@@ -992,6 +1013,8 @@ app.post('/api/auth/google', async (req, res) => {
           ON CONFLICT (car_number) DO UPDATE SET user_id = EXCLUDED.user_id, updated_at = CURRENT_TIMESTAMP;
         `, [vId, userObj.id, name, email, defaultPhone, defaultPlate, vehicleType]);
       }
+
+      await recordLogin(userObj, {}, 'google');
 
       const token = signToken({
         userId: userObj.id,

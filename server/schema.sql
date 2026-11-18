@@ -132,6 +132,20 @@ CREATE TABLE IF NOT EXISTS wallet_transactions (
     created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
 );
 
+-- 8. LOGIN HISTORY TABLE (every sign-in is kept; rows are never updated or deleted)
+CREATE TABLE IF NOT EXISTS login_history (
+    id VARCHAR(60) PRIMARY KEY,
+    user_id VARCHAR(50) REFERENCES users(id) ON DELETE SET NULL,
+    name VARCHAR(100) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    car_number VARCHAR(30),
+    vehicle_type VARCHAR(20),
+    login_method VARCHAR(20) DEFAULT 'mobile',
+    logged_in_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS idx_login_history_user ON login_history(user_id);
+CREATE INDEX IF NOT EXISTS idx_login_history_time ON login_history(logged_in_at);
+
 -- AUTO-MIGRATE COLUMNS IF ALREADY CREATED PREVIOUSLY
 ALTER TABLE users ADD COLUMN IF NOT EXISTS wallet_balance NUMERIC(10, 2) NOT NULL DEFAULT 500.00;
 ALTER TABLE users ADD COLUMN IF NOT EXISTS role VARCHAR(20) DEFAULT 'driver';
