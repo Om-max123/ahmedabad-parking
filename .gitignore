@@ -31,3 +31,4 @@ dist-ssr
 # Embedded PostgreSQL (PGlite) data
 server/data/pgdata
 .vercel
+.env*
