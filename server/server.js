@@ -5,7 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { generateSlotsFromDataset, parseCSVDataset } from './datasetLoader.js';
-import { initPostgres, isDbConnected, query, getClient } from './db.js';
+import { initPostgres, isDbConnected, query, getClient, getDbEngine } from './db.js';
 import { signToken, requireAuth, optionalAuth, requireAdmin, verifyGoogleIdToken } from './auth.js';
 import { applySafeDatabaseEnhancements } from './safe-migrate.js';
 
@@ -320,9 +320,42 @@ async function autoSeedPostgresIfEmpty() {
 // Initial local data load
 loadData();
 
+// One-time database bootstrap (shared by local server and Vercel serverless function)
+let dbReadyPromise = null;
+function ensureDatabaseReady() {
+  if (!dbReadyPromise) {
+    dbReadyPromise = (async () => {
+      const connected = await initPostgres();
+      if (connected) {
+        try {
+          await applySafeDatabaseEnhancements();
+          await autoSeedPostgresIfEmpty();
+        } catch (err) {
+          console.warn('[PostgreSQL] Initialization enhancements notice:', err.message);
+        }
+      }
+      return connected;
+    })();
+  }
+  return dbReadyPromise;
+}
+
+app.use(async (req, res, next) => {
+  try {
+    await ensureDatabaseReady();
+  } catch (err) {
+    console.error('[PostgreSQL] Bootstrap error:', err.message);
+  }
+  next();
+});
+
 // Health check endpoint
 app.get('/api/health', async (req, res) => {
-  const dbStatus = isDbConnected() ? 'PostgreSQL (Active & Connected)' : 'JSON Local Storage (Fallback Mode)';
+  const dbStatus = !isDbConnected()
+    ? 'JSON Local Storage (Fallback Mode)'
+    : getDbEngine() === 'pglite'
+      ? 'PostgreSQL (Embedded PGlite Engine)'
+      : 'PostgreSQL (Active & Connected)';
   res.json({
     status: 'ok',
     system: 'Ahmedabad Smart Parking Management System',
@@ -467,9 +500,11 @@ app.get('/api/database/table/:name', async (req, res) => {
 
   if (isDbConnected()) {
     try {
-      const orderClause = (tableName === 'vehicle_owners' || tableName === 'users' || tableName === 'wallet_transactions' || tableName === 'bookings' || tableName === 'receipts') 
-        ? 'ORDER BY created_at DESC' 
-        : '';
+      const orderClause = tableName === 'receipts'
+        ? 'ORDER BY paid_at DESC'
+        : (tableName === 'vehicle_owners' || tableName === 'users' || tableName === 'wallet_transactions' || tableName === 'bookings')
+          ? 'ORDER BY created_at DESC'
+          : '';
       const result = await query(`SELECT * FROM ${tableName} ${orderClause} LIMIT 100`);
       return res.json({
         success: true,
@@ -1109,6 +1144,19 @@ app.delete('/api/vehicles/:id', requireAuth, async (req, res) => {
 
       if (result.rows.length === 0) {
         return res.status(404).json({ error: 'Vehicle not found or not authorized to delete.' });
+      }
+
+      // If the active vehicle was removed, switch the profile to another registered vehicle
+      if (result.rows[0].car_number === req.user.carNumber) {
+        const next = await query(
+          'SELECT * FROM vehicle_owners WHERE user_id = $1 OR phone = $2 ORDER BY is_default DESC, created_at DESC LIMIT 1;',
+          [userId, req.user.phone]
+        );
+        if (next.rows.length > 0) {
+          const nextVehicle = next.rows[0];
+          await query('UPDATE vehicle_owners SET is_default = (id = $1) WHERE user_id = $2;', [nextVehicle.id, userId]);
+          await query('UPDATE users SET car_number = $1, vehicle_type = $2 WHERE id = $3;', [nextVehicle.car_number, nextVehicle.vehicle_type, userId]);
+        }
       }
 
       return res.json({ success: true, message: 'Vehicle removed from your registry.' });
@@ -2354,8 +2402,8 @@ app.get('/api/vehicle-owners/:id', async (req, res) => {
   if (isDbConnected()) {
     try {
       const result = await query(
-        'SELECT * FROM vehicle_owners WHERE id = $1 OR car_number = $1 LIMIT 1',
-        [id.toUpperCase()]
+        'SELECT * FROM vehicle_owners WHERE id = $1 OR car_number = UPPER($1) LIMIT 1',
+        [id]
       );
       if (result.rows.length > 0) {
         return res.json(result.rows[0]);
@@ -2663,15 +2711,7 @@ const isDirectRun = process.argv[1] && (process.argv[1].endsWith('server.js') ||
 if (isDirectRun && process.env.VERCEL !== '1') {
   app.listen(PORT, async () => {
     console.log(`Ahmedabad Smart Parking Backend API running on http://localhost:${PORT}`);
-    const connected = await initPostgres();
-    if (connected) {
-      try {
-        await applySafeDatabaseEnhancements();
-        await autoSeedPostgresIfEmpty();
-      } catch (err) {
-        console.warn('[PostgreSQL] Initialization enhancements notice:', err.message);
-      }
-    }
+    await ensureDatabaseReady();
   });
 }
 

@@ -67,6 +67,18 @@ Managed via **PostgreSQL 16** with foreign keys, checks, indexes, and numeric cu
 
 ---
 
+## 🧩 Database Engine Selection (No Install Required)
+
+On startup the backend tries the PostgreSQL server in `DATABASE_URL`. If none is reachable, it automatically
+starts an **embedded PostgreSQL engine (PGlite)** inside Node.js and runs the same `schema.sql`, migrations and seed data.
+
+| Where | No `DATABASE_URL` / server down | Cloud `DATABASE_URL` set (e.g. Neon) |
+|-------|------------------------------|--------------------------------------|
+| Local (`npm start`) | PGlite, data saved in `server/data/pgdata` | External PostgreSQL |
+| Vercel | PGlite in memory (resets on cold start) | External PostgreSQL (persistent) |
+
+For permanent data on Vercel, add a Neon/Supabase connection string as the `DATABASE_URL` environment variable.
+
 ## 🐘 pgAdmin 4 Connection Guide
 
 pgAdmin 4 is a client management tool that connects to your PostgreSQL server:

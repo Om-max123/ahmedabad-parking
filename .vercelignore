@@ -1,0 +1,6 @@
+.env
+node_modules
+dist
+scratch
+server/data/pgdata
+.DS_Store

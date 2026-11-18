@@ -2,6 +2,12 @@
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "{server/**,PostgreSQL_Database_Design_Ahmedabad_Parking.docx,node_modules/@electric-sql/pglite/dist/**}",
+      "maxDuration": 30
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",
@@ -13,4 +19,3 @@
     }
   ]
 }
-

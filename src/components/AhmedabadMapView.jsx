@@ -24,6 +24,13 @@ export default function AhmedabadMapView({ locations, selectedLocationId, onSele
       return;
     }
 
+    // Google calls this global when the key is invalid or billing is disabled;
+    // switch to the built-in city map instead of Google's error overlay
+    window.gm_authFailure = () => {
+      setGmapError('Google Maps key rejected (invalid key or billing not enabled). Showing built-in city map.');
+      setGmapLoaded(false);
+    };
+
     const scriptId = 'google-maps-script';
     let script = document.getElementById(scriptId);
 

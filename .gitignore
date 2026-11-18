@@ -27,3 +27,7 @@ dist-ssr
 .env
 .env*.local
 
+
+# Embedded PostgreSQL (PGlite) data
+server/data/pgdata
+.vercel
