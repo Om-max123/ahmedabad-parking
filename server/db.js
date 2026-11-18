@@ -127,6 +127,27 @@ export const pool = {
 
 let postgresConnected = false;
 let lastInitError = null;
+let schemaWasCurrent = false;
+
+// True once schema.sql and safe-migrate.js have both been applied
+async function checkSchemaCurrent() {
+  try {
+    const res = await pool.query(`
+      SELECT
+        EXISTS (SELECT 1 FROM information_schema.columns
+                WHERE table_schema = 'public' AND table_name = 'bookings' AND column_name = 'cancelled_at') AS has_column,
+        EXISTS (SELECT 1 FROM pg_indexes
+                WHERE schemaname = 'public' AND indexname = 'idx_bookings_idempotency') AS has_index;
+    `);
+    return Boolean(res.rows[0]?.has_column && res.rows[0]?.has_index);
+  } catch {
+    return false;
+  }
+}
+
+export function isSchemaCurrent() {
+  return schemaWasCurrent;
+}
 
 export function isCloudDatabaseConfigured() {
   return isCloudPostgres;
@@ -183,6 +204,14 @@ export async function initPostgres() {
   }
 
   try {
+    // Skip DDL when the schema is already fully migrated: ALTER/CREATE take table locks
+    // and would block (or deadlock with) live bookings on every serverless cold start.
+    schemaWasCurrent = await checkSchemaCurrent();
+    if (schemaWasCurrent) {
+      postgresConnected = true;
+      console.log('[PostgreSQL] Schema already up to date; skipping migrations.');
+      return true;
+    }
     // Auto-run schema.sql to ensure all tables exist
     const schemaPath = path.join(__dirname, 'schema.sql');
     if (fs.existsSync(schemaPath)) {

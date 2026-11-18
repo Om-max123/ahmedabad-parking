@@ -5,7 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { generateSlotsFromDataset, parseCSVDataset } from './datasetLoader.js';
-import { initPostgres, isDbConnected, query, getClient, getDbEngine, isCloudDatabaseConfigured, getDbInitError, getDbHost } from './db.js';
+import { initPostgres, isDbConnected, query, getClient, getDbEngine, isCloudDatabaseConfigured, getDbInitError, getDbHost, isSchemaCurrent } from './db.js';
 import { signToken, requireAuth, optionalAuth, requireAdmin, verifyGoogleIdToken } from './auth.js';
 import { applySafeDatabaseEnhancements } from './safe-migrate.js';
 
@@ -314,6 +314,7 @@ async function autoSeedPostgresIfEmpty() {
     }
   } catch (err) {
     console.error('[PostgreSQL] Auto-seed check error:', err.message);
+    throw err;
   }
 }
 
@@ -340,8 +341,15 @@ function ensureDatabaseReady() {
       const connected = await initPostgres();
       if (connected) {
         try {
-          await applySafeDatabaseEnhancements();
-          await autoSeedPostgresIfEmpty();
+          if (!isSchemaCurrent()) await applySafeDatabaseEnhancements();
+          // Several instances may cold-start together; retry once if seeding collides
+          try {
+            await autoSeedPostgresIfEmpty();
+          } catch (seedErr) {
+            console.warn('[PostgreSQL] Seed retry after:', seedErr.message);
+            await new Promise((r) => setTimeout(r, 500 + Math.random() * 1000));
+            await autoSeedPostgresIfEmpty();
+          }
           await refreshSimulatedOccupancy();
         } catch (err) {
           console.warn('[PostgreSQL] Initialization enhancements notice:', err.message);
@@ -2790,7 +2798,12 @@ app.post('/api/reset', requireAuth, requireAdmin, async (req, res) => {
 
   if (isDbConnected()) {
     try {
-      await query('TRUNCATE TABLE receipts, bookings, parking_slots CASCADE;');
+      // Keep all history: close active bookings instead of deleting bookings/receipts/ledger
+      await query(`
+        UPDATE bookings
+        SET status = 'completed', exit_time = COALESCE(exit_time, CURRENT_TIMESTAMP)
+        WHERE status = 'active';
+      `);
       for (const loc of locations) {
         for (const s of loc.slots) {
           const slotDbId = `${loc.id}_${s.id}`;
@@ -2803,7 +2816,12 @@ app.post('/api/reset', requireAuth, requireAdmin, async (req, res) => {
               current_plate, current_driver, current_phone, parked_at, battery_level,
               sensor_ultrasonic, sensor_proximity, sensor_pressure, sensor_noise,
               sensor_temperature, nearby_traffic, dynamic_pricing_factor, spot_size
-            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20);
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20)
+            ON CONFLICT (id) DO UPDATE SET
+              status = EXCLUDED.status, current_plate = EXCLUDED.current_plate,
+              current_driver = EXCLUDED.current_driver, current_phone = EXCLUDED.current_phone,
+              parked_at = EXCLUDED.parked_at, battery_level = EXCLUDED.battery_level,
+              updated_at = CURRENT_TIMESTAMP;
           `, [
             slotDbId, loc.id, s.id, s.spotNumber || 1, s.zone || 'A', s.type || 'compact', s.status || 'available',
             isOcc ? v.plate : null, isOcc ? v.driver : null, isOcc ? v.phone : null,
@@ -2813,13 +2831,13 @@ app.post('/api/reset', requireAuth, requireAdmin, async (req, res) => {
           ]);
         }
       }
-      await applySafeDatabaseEnhancements();
+      await refreshSimulatedOccupancy();
     } catch (err) {
       console.error('[PostgreSQL] Reset error:', err.message);
     }
   }
 
-  res.json({ success: true, message: 'Parking system reset with slots re-seeded from dataset.' });
+  res.json({ success: true, message: 'Bays reset to the dataset baseline. Booking, receipt and wallet history were kept.' });
 });
 
 // Boot server and verify PostgreSQL connection
